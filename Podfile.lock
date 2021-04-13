@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.1)
+  - Alamofire (5.4.2)
   - Realm (10.7.2):
     - Realm/Headers (= 10.7.2)
   - Realm/Headers (10.7.2)
@@ -25,7 +25,9 @@ PODS:
   - RxSwift (6.1.0)
   - RxTest (6.1.0):
     - RxSwift (= 6.1.0)
-  - Swinject (1.1.5)
+  - Swinject (2.7.1)
+  - SwinjectStoryboard (2.2.0):
+    - Swinject (~> 2.7.1)
 
 DEPENDENCIES:
   - RxAlamofire
@@ -34,7 +36,8 @@ DEPENDENCIES:
   - RxRealm
   - RxSwift (= 6.1.0)
   - RxTest (= 6.1.0)
-  - Swinject (~> 1.1.4)
+  - Swinject (~> 2.7.1)
+  - SwinjectStoryboard (from `https://github.com/Swinject/SwinjectStoryboard.git`, commit `0ca45c83a8aa398c153d8a036c95abb4343cfa0c`)
 
 SPEC REPOS:
   trunk:
@@ -50,8 +53,18 @@ SPEC REPOS:
     - RxTest
     - Swinject
 
+EXTERNAL SOURCES:
+  SwinjectStoryboard:
+    :commit: 0ca45c83a8aa398c153d8a036c95abb4343cfa0c
+    :git: https://github.com/Swinject/SwinjectStoryboard.git
+
+CHECKOUT OPTIONS:
+  SwinjectStoryboard:
+    :commit: 0ca45c83a8aa398c153d8a036c95abb4343cfa0c
+    :git: https://github.com/Swinject/SwinjectStoryboard.git
+
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
   Realm: e523da9ade306c5ae87e85dc09fdef148d3e1cc1
   RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
@@ -61,8 +74,9 @@ SPEC CHECKSUMS:
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   RxTest: 9d26616eaff4a7e75f4ecae9b2c24840f2e8218d
-  Swinject: 49b2b23850829e0a6074681264dcb1aa64c0dbca
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  SwinjectStoryboard: f0d5b1c16459949d6ff1cbb6610107946b18e1f8
 
-PODFILE CHECKSUM: 25d67bd560e27203f2f1b826bb0772f019429afa
+PODFILE CHECKSUM: e056b6fdec6a9be8da94041a98a6456a2b5d94ca
 
 COCOAPODS: 1.10.1
