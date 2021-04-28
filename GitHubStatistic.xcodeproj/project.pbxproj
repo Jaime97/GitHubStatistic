@@ -11,6 +11,7 @@
 		3745E91126271938000B82C6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745E91026271938000B82C6 /* GradientView.swift */; };
 		374F7EFA261C773600366445 /* RepositorySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F7EF9261C773600366445 /* RepositorySearchViewModel.swift */; };
 		374F7F01261C7C0200366445 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F7F00261C7C0200366445 /* BaseViewModel.swift */; };
+		37A282812631930D00C874BF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A282802631930D00C874BF /* BaseViewController.swift */; };
 		37BCA1BD261B26100021743A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCA1BC261B26100021743A /* AppDelegate.swift */; };
 		37BCA1BF261B26100021743A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCA1BE261B26100021743A /* SceneDelegate.swift */; };
 		37BCA1C1261B26100021743A /* RepositorySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCA1C0261B26100021743A /* RepositorySearchViewController.swift */; };
@@ -19,6 +20,7 @@
 		37BCA1C9261B26130021743A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37BCA1C7261B26130021743A /* LaunchScreen.storyboard */; };
 		37BCA1D4261B26130021743A /* GitHubStatisticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCA1D3261B26130021743A /* GitHubStatisticTests.swift */; };
 		37BCA1DF261B26130021743A /* GitHubStatisticUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCA1DE261B26130021743A /* GitHubStatisticUITests.swift */; };
+		37BCF6212639778500B02237 /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCF6202639778500B02237 /* SwinjectStoryboard+Setup.swift */; };
 		58763032430E8A25161835BD /* Pods_GitHubStatistic_GitHubStatisticUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F35AE288897C05A5C605BD /* Pods_GitHubStatistic_GitHubStatisticUITests.framework */; };
 		C9193A44B47FA368026AC1BF /* Pods_GitHubStatisticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7FBA737FC16796D82207597 /* Pods_GitHubStatisticTests.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +48,7 @@
 		3745E91026271938000B82C6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		374F7EF9261C773600366445 /* RepositorySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchViewModel.swift; sourceTree = "<group>"; };
 		374F7F00261C7C0200366445 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		37A282802631930D00C874BF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		37BCA1B9261B26100021743A /* GitHubStatistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubStatistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BCA1BC261B26100021743A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37BCA1BE261B26100021743A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		37BCA1DA261B26130021743A /* GitHubStatisticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubStatisticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BCA1DE261B26130021743A /* GitHubStatisticUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubStatisticUITests.swift; sourceTree = "<group>"; };
 		37BCA1E0261B26130021743A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37BCF6202639778500B02237 /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		4FB6C989FCDB94B3713DE568 /* Pods-GitHubStatisticTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubStatisticTests.debug.xcconfig"; path = "Target Support Files/Pods-GitHubStatisticTests/Pods-GitHubStatisticTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DDE817251D263D47F79F3FC /* Pods-GitHubStatistic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubStatistic.debug.xcconfig"; path = "Target Support Files/Pods-GitHubStatistic/Pods-GitHubStatistic.debug.xcconfig"; sourceTree = "<group>"; };
 		60DF03DDE191B1EAD7F7D7FB /* Pods-GitHubStatistic-GitHubStatisticUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubStatistic-GitHubStatisticUITests.release.xcconfig"; path = "Target Support Files/Pods-GitHubStatistic-GitHubStatisticUITests/Pods-GitHubStatistic-GitHubStatisticUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				374F7F00261C7C0200366445 /* BaseViewModel.swift */,
+				37A282802631930D00C874BF /* BaseViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 				37BCA1C5261B26130021743A /* Assets.xcassets */,
 				37BCA1C7261B26130021743A /* LaunchScreen.storyboard */,
 				37BCA1CA261B26130021743A /* Info.plist */,
+				37BCF6202639778500B02237 /* SwinjectStoryboard+Setup.swift */,
 			);
 			path = GitHubStatistic;
 			sourceTree = "<group>";
@@ -542,6 +548,8 @@
 				3745E91126271938000B82C6 /* GradientView.swift in Sources */,
 				37BCA1C1261B26100021743A /* RepositorySearchViewController.swift in Sources */,
 				37BCA1BD261B26100021743A /* AppDelegate.swift in Sources */,
+				37BCF6212639778500B02237 /* SwinjectStoryboard+Setup.swift in Sources */,
+				37A282812631930D00C874BF /* BaseViewController.swift in Sources */,
 				37BCA1BF261B26100021743A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

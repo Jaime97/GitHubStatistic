@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 class BaseViewModel {
-    private let bag: DisposeBag = DisposeBag()
+    public let bag: DisposeBag = DisposeBag()
 }

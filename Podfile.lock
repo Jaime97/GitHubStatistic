@@ -15,6 +15,9 @@ PODS:
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
     - RxSwift (= 6.1.0)
+  - RxGesture (4.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRealm (5.0.1):
     - Realm (~> 10.5)
     - RealmSwift (~> 10.5)
@@ -33,6 +36,7 @@ DEPENDENCIES:
   - RxAlamofire
   - RxBlocking (= 6.1.0)
   - RxCocoa (= 6.1.0)
+  - RxGesture
   - RxRealm
   - RxSwift (= 6.1.0)
   - RxTest (= 6.1.0)
@@ -47,6 +51,7 @@ SPEC REPOS:
     - RxAlamofire
     - RxBlocking
     - RxCocoa
+    - RxGesture
     - RxRealm
     - RxRelay
     - RxSwift
@@ -70,6 +75,7 @@ SPEC CHECKSUMS:
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxBlocking: 602095fba0bce7b16b56ccec89edf780c248b7d9
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
   RxRealm: bd7c601e78cfebe48c24d4550db83c31e1ab2c33
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
@@ -77,6 +83,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: f0d5b1c16459949d6ff1cbb6610107946b18e1f8
 
-PODFILE CHECKSUM: e056b6fdec6a9be8da94041a98a6456a2b5d94ca
+PODFILE CHECKSUM: 5d25ce5e8be519d64fc7ebb7abec92019b884a21
 
 COCOAPODS: 1.10.1

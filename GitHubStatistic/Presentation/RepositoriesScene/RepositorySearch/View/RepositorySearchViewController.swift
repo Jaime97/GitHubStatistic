@@ -6,10 +6,21 @@
 //
 
 import UIKit
+import RxCocoa
+import RxGesture
+import RxSwift
 
-class RepositorySearchViewController: UIViewController {
+class RepositorySearchViewController: BaseViewController {
+
+    @IBOutlet weak var searchView: UIView!
     
-    var viewModel: RepositorySearchViewModel! = nil
+    @IBOutlet weak var searchCollectionView: UICollectionView!
+    
+    @IBOutlet weak var searchViewTopToViewCenterConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var searchViewTopToViewTopConstraint: NSLayoutConstraint!
+    
+    var viewModel: RepositorySearchViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +29,34 @@ class RepositorySearchViewController: UIViewController {
 
     private func setupBindings() {
         
+        self.searchView.rx.swipeGesture([.up, .down]).when(.ended).map { gesture in
+            gesture.direction == .up
+        }.asObservable()
+        .bind(to: self.viewModel.searchViewGesture)
+        .disposed(by: self.bag)
+        
+        self.viewModel.searchViewIsUp.drive { isViewUp in
+            self.changeSearchViewPosition(up: isViewUp)
+        }.disposed(by: self.bag)
+
+        
     }
+    
+    private func changeSearchViewPosition(up:Bool) {
+        if(up){
+            self.searchViewTopToViewCenterConstraint.isActive = false
+            self.searchViewTopToViewTopConstraint.isActive = true
+        } else {
+            self.searchViewTopToViewTopConstraint.isActive = false
+            self.searchViewTopToViewCenterConstraint.isActive = true
+        }
+        
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    
 
 }
 
