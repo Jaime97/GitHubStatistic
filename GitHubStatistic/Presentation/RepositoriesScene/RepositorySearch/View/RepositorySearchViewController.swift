@@ -20,6 +20,8 @@ class RepositorySearchViewController: BaseViewController {
     
     @IBOutlet weak var searchViewTopToViewTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var noPreviousSearchLabel: UILabel!
+    
     var viewModel: RepositorySearchViewModel!
     
     override func viewDidLoad() {
@@ -33,11 +35,20 @@ class RepositorySearchViewController: BaseViewController {
             gesture.direction == .up
         }.asObservable()
         .bind(to: self.viewModel.searchViewGesture)
-        .disposed(by: self.bag)
+        .disposed(by: self.disposeBag)
         
         self.viewModel.searchViewIsUp.drive { isViewUp in
             self.changeSearchViewPosition(up: isViewUp)
-        }.disposed(by: self.bag)
+        }.disposed(by: self.disposeBag)
+        
+        self.searchCollectionView.rx
+            .setDelegate(self)
+            .disposed(by:self.disposeBag)
+        
+        self.viewModel.previousSearchCells.drive(self.searchCollectionView.rx.items(cellIdentifier: "RecentRepositoryCell", cellType: RecentRepositoryCell.self)) { i, cellModel, cell in
+            cell.repositoryName.text = cellModel.name
+            cell.numberOfCommits.text = String(cellModel.numberOfCommits)
+        }.disposed(by: self.disposeBag)
 
         
     }
@@ -57,6 +68,14 @@ class RepositorySearchViewController: BaseViewController {
     }
     
     
+    
+}
 
+extension RepositorySearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let width = collectionView.bounds.width
+            let cellWidth = (width - 30) / 2
+        return CGSize(width: cellWidth, height: cellWidth * 1.2)
+        }
 }
 

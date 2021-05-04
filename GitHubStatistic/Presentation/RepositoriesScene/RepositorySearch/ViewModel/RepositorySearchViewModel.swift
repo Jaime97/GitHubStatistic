@@ -12,6 +12,8 @@ import RxCocoa
 
 class RepositorySearchViewModel : BaseViewModel {
     
+    let getRecentRepositoriesUseCase : GetRecentRepositoriesUseCase
+    
     // MARK: Input
     let searchText : Driver<String>! = nil
     let searchButton : Driver<Void>! = nil
@@ -20,9 +22,12 @@ class RepositorySearchViewModel : BaseViewModel {
     
     // MARK: Output
     let searchViewIsUp : Driver<Bool>!
+    let previousSearchCells: Driver<[Repository]>
     
-    override init() {
+    init(getRecentRepositoriesUseCase : GetRecentRepositoriesUseCase) {
+        self.getRecentRepositoriesUseCase = getRecentRepositoriesUseCase
         self.searchViewIsUp = self.searchViewGesture.asDriver(onErrorJustReturn: false)
+        self.previousSearchCells = self.getRecentRepositoriesUseCase.execute().asDriver(onErrorJustReturn: [Repository]())
     }
     
     

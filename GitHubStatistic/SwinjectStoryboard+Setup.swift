@@ -13,7 +13,10 @@ extension SwinjectStoryboard {
             c.viewModel = r.resolve(RepositorySearchViewModel.self)!
         }
         defaultContainer.register(RepositorySearchViewModel.self) { r in
-            RepositorySearchViewModel()
+            RepositorySearchViewModel(getRecentRepositoriesUseCase: r.resolve(GetRecentRepositoriesUseCase.self)!)
+        }
+        defaultContainer.register(GetRecentRepositoriesUseCase.self) { r in
+            GetRecentRepositoriesUseCase()
         }
     }
 }
