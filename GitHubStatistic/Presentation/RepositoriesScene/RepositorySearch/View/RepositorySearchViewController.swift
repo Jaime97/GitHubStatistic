@@ -28,6 +28,8 @@ class RepositorySearchViewController: BaseViewController {
     
     @IBOutlet weak var searchButtonBottomToViewBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var blackCoverView: UIView!
+    
     var viewModel: RepositorySearchViewModel!
     
     override func viewDidLoad() {
@@ -91,13 +93,15 @@ class RepositorySearchViewController: BaseViewController {
         }
         
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn) {
+            self.blackCoverView.alpha = up ? 1.0 : 0.0
             self.view.layoutIfNeeded()
         }
     }
     
     private func changeSearchViewVisibility(visibility:Bool) {
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear) {
+        UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveLinear) {
             self.searchView.alpha = visibility ? 1.0 : 0.0
+            self.searchButton.alpha = visibility ? 1.0 : 0.0
         }
     }
     

@@ -29,9 +29,9 @@ class RepositorySearchViewModel : BaseViewModel {
     
     init(getRecentRepositoriesUseCase : GetRecentRepositoriesUseCase) {
         self.getRecentRepositoriesUseCase = getRecentRepositoriesUseCase
-        self.searchViewIsUp = self.searchViewSwipeGesture.asDriver(onErrorJustReturn: false)
+        self.searchViewIsUp = self.searchViewSwipeGesture.asDriver(onErrorJustReturn: false).filter{$0}
         self.previousSearchCells = self.getRecentRepositoriesUseCase.execute().asDriver(onErrorJustReturn: [Repository]())
-        self.showSearchButton = self.searchViewSwipeGesture.asDriver(onErrorJustReturn: false)
+        self.showSearchButton = self.searchViewSwipeGesture.asDriver(onErrorJustReturn: false).filter{$0}
         
         let searchButtonTappedSubscription = self.searchButtonTap.throttle(.milliseconds(500), latest: false, scheduler: MainScheduler.instance).share()
         self.hidePreviousSearchInterface = searchButtonTappedSubscription.map{true}.asDriver(onErrorJustReturn: false)
