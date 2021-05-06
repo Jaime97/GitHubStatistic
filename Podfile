@@ -12,7 +12,8 @@ target 'GitHubStatistic' do
   pod 'RxAlamofire'
   pod 'RxGesture'
   pod 'Swinject', '~> 2.7.1'
-pod 'SwinjectStoryboard', :git => 'https://github.com/Swinject/SwinjectStoryboard.git', :commit => '0ca45c83a8aa398c153d8a036c95abb4343cfa0c'
+  pod 'BetterSegmentedControl', '~> 2.0'
+  pod 'SwinjectStoryboard', :git => 'https://github.com/Swinject/SwinjectStoryboard.git', :commit => '0ca45c83a8aa398c153d8a036c95abb4343cfa0c'
 
   target 'GitHubStatisticTests' do
     inherit! :search_paths

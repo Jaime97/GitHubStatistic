@@ -9,7 +9,16 @@ import Foundation
 import UIKit
 import RxSwift
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, UITextFieldDelegate {
     
     public let disposeBag: DisposeBag = DisposeBag()
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true);
+    }
 }

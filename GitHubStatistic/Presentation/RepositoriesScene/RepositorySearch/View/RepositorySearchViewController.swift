@@ -9,6 +9,7 @@ import UIKit
 import RxCocoa
 import RxGesture
 import RxSwift
+import BetterSegmentedControl
 
 class RepositorySearchViewController: BaseViewController {
 
@@ -27,6 +28,24 @@ class RepositorySearchViewController: BaseViewController {
     @IBOutlet weak var searchButton: UIButton!
     
     @IBOutlet weak var searchButtonBottomToViewBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var searchTypeSegmentedControl: BetterSegmentedControl! {
+        didSet {
+            self.searchTypeSegmentedControl.segments = LabelSegment.segments(withTitles: ["Repository", "Owner"],
+                                                                             normalTextColor: .appColor(.TopBackgroundColor),
+                                                                             selectedTextColor: .black)
+        }
+    }
+    
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet {
+            self.searchTextField.tintColor = UIColor.gray
+            self.searchTextField.setIcon(UIImage(named: "search_simple")!)
+            self.searchTextField.attributedPlaceholder = NSAttributedString(string:"placeholder",
+                                                                            attributes:[NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+            self.searchTextField.delegate = self
+        }
+     }
     
     @IBOutlet weak var blackCoverView: UIView!
     

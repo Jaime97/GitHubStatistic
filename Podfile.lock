@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.2)
+  - BetterSegmentedControl (2.0.1)
   - Realm (10.7.2):
     - Realm/Headers (= 10.7.2)
   - Realm/Headers (10.7.2)
@@ -33,6 +34,7 @@ PODS:
     - Swinject (~> 2.7.1)
 
 DEPENDENCIES:
+  - BetterSegmentedControl (~> 2.0)
   - RxAlamofire
   - RxBlocking (= 6.1.0)
   - RxCocoa (= 6.1.0)
@@ -46,6 +48,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - BetterSegmentedControl
     - Realm
     - RealmSwift
     - RxAlamofire
@@ -70,6 +73,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
+  BetterSegmentedControl: 09607b27861d49cbce48b7673b74f9150a3d371a
   Realm: e523da9ade306c5ae87e85dc09fdef148d3e1cc1
   RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
@@ -83,6 +87,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: f0d5b1c16459949d6ff1cbb6610107946b18e1f8
 
-PODFILE CHECKSUM: 5d25ce5e8be519d64fc7ebb7abec92019b884a21
+PODFILE CHECKSUM: acad5e08fa714fd0b3d38a22113bf6b924fbd139
 
 COCOAPODS: 1.10.1

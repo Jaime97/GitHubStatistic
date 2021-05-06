@@ -35,7 +35,7 @@ class RepositorySearchViewModel : BaseViewModel {
         
         let searchButtonTappedSubscription = self.searchButtonTap.throttle(.milliseconds(500), latest: false, scheduler: MainScheduler.instance).share()
         self.hidePreviousSearchInterface = searchButtonTappedSubscription.map{true}.asDriver(onErrorJustReturn: false)
-        self.showNewSearchInterface = searchButtonTappedSubscription.delay(.milliseconds(300), scheduler: MainScheduler.instance).map{true}.asDriver(onErrorJustReturn: false)
+        self.showNewSearchInterface = searchButtonTappedSubscription.delay(.milliseconds(1000), scheduler: MainScheduler.instance).map{true}.asDriver(onErrorJustReturn: false)
     }
     
     
