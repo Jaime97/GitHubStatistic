@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		29B2B30DDF0E6382E6AB5DD6 /* Pods_GitHubStatistic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A069CAD01224FA79BBF663 /* Pods_GitHubStatistic.framework */; };
 		372C865F264419AF00B31018 /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C865E264419AF00B31018 /* UIColor+CustomColors.swift */; };
+		372C86642644209F00B31018 /* SearchRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C86632644209F00B31018 /* SearchRepositoriesUseCase.swift */; };
 		3745E91126271938000B82C6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745E91026271938000B82C6 /* GradientView.swift */; };
 		374F7EFA261C773600366445 /* RepositorySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F7EF9261C773600366445 /* RepositorySearchViewModel.swift */; };
 		374F7F01261C7C0200366445 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F7F00261C7C0200366445 /* BaseViewModel.swift */; };
 		37771ED72640180D00970BCF /* RecentRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37771ED62640180D00970BCF /* RecentRepositoryCell.swift */; };
 		377D0AC62642EBA600547F00 /* UITextField+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377D0AC52642EBA600547F00 /* UITextField+Icon.swift */; };
 		37A282812631930D00C874BF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A282802631930D00C874BF /* BaseViewController.swift */; };
+		37B528D326454A1F00617D83 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37B528D526454A1F00617D83 /* Localizable.strings */; };
 		37BCA1BD261B26100021743A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCA1BC261B26100021743A /* AppDelegate.swift */; };
 		37BCA1BF261B26100021743A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCA1BE261B26100021743A /* SceneDelegate.swift */; };
 		37BCA1C1261B26100021743A /* RepositorySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCA1C0261B26100021743A /* RepositorySearchViewController.swift */; };
@@ -52,12 +54,17 @@
 		01F35AE288897C05A5C605BD /* Pods_GitHubStatistic_GitHubStatisticUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubStatistic_GitHubStatisticUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		309F3E2673DB97AE64CEB39C /* Pods-GitHubStatistic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubStatistic.release.xcconfig"; path = "Target Support Files/Pods-GitHubStatistic/Pods-GitHubStatistic.release.xcconfig"; sourceTree = "<group>"; };
 		372C865E264419AF00B31018 /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
+		372C86632644209F00B31018 /* SearchRepositoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesUseCase.swift; sourceTree = "<group>"; };
 		3745E91026271938000B82C6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		374F7EF9261C773600366445 /* RepositorySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchViewModel.swift; sourceTree = "<group>"; };
 		374F7F00261C7C0200366445 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		37771ED62640180D00970BCF /* RecentRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentRepositoryCell.swift; sourceTree = "<group>"; };
 		377D0AC52642EBA600547F00 /* UITextField+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Icon.swift"; sourceTree = "<group>"; };
 		37A282802631930D00C874BF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		37B528D426454A1F00617D83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		37B528D926454A5500617D83 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		37B528DA26454A5600617D83 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		37B528DB26454A5600617D83 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37BCA1B9261B26100021743A /* GitHubStatistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubStatistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BCA1BC261B26100021743A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37BCA1BE261B26100021743A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +181,7 @@
 				37BCA1C7261B26130021743A /* LaunchScreen.storyboard */,
 				37BCA1CA261B26130021743A /* Info.plist */,
 				37BCF6202639778500B02237 /* SwinjectStoryboard+Setup.swift */,
+				37B528D526454A1F00617D83 /* Localizable.strings */,
 			);
 			path = GitHubStatistic;
 			sourceTree = "<group>";
@@ -264,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				37DE0C82263C1FF100AD4B0C /* GetRecentRepositoriesUseCase.swift */,
+				372C86632644209F00B31018 /* SearchRepositoriesUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -428,6 +437,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 37BCA1B0261B26100021743A;
 			productRefGroup = 37BCA1BA261B26100021743A /* Products */;
@@ -447,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37BCA1C9261B26130021743A /* LaunchScreen.storyboard in Resources */,
+				37B528D326454A1F00617D83 /* Localizable.strings in Resources */,
 				37BCA1C6261B26130021743A /* Assets.xcassets in Resources */,
 				37BCA1C4261B26100021743A /* Main.storyboard in Resources */,
 			);
@@ -594,6 +605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37771ED72640180D00970BCF /* RecentRepositoryCell.swift in Sources */,
+				372C86642644209F00B31018 /* SearchRepositoriesUseCase.swift in Sources */,
 				374F7EFA261C773600366445 /* RepositorySearchViewModel.swift in Sources */,
 				374F7F01261C7C0200366445 /* BaseViewModel.swift in Sources */,
 				3745E91126271938000B82C6 /* GradientView.swift in Sources */,
@@ -642,10 +654,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		37B528D526454A1F00617D83 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37B528D426454A1F00617D83 /* en */,
+				37B528DB26454A5600617D83 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		37BCA1C2261B26100021743A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				37BCA1C3261B26100021743A /* Base */,
+				37B528D926454A5500617D83 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -654,6 +676,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				37BCA1C8261B26130021743A /* Base */,
+				37B528DA26454A5600617D83 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -665,6 +688,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -726,6 +750,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

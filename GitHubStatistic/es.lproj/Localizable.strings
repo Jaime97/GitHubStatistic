@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  GitHubStatistic
+
+  Created by Jaime Alcántara on 07/05/2021.
+  
+*/
+
+"search_repo_here" = "Busca tu repositorio aquí";
+"repository" = "Repositorio";
+"owner" = "Dueño";
