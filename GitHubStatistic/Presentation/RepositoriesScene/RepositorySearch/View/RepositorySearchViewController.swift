@@ -29,9 +29,12 @@ class RepositorySearchViewController: BaseViewController {
     
     @IBOutlet weak var searchButtonBottomToViewBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var searchResultTableView: UITableView!
+    
+    
     @IBOutlet weak var searchTypeSegmentedControl: BetterSegmentedControl! {
         didSet {
-            self.searchTypeSegmentedControl.segments = LabelSegment.segments(withTitles: ["Repository", "Owner"],
+            self.searchTypeSegmentedControl.segments = LabelSegment.segments(withTitles: [NSLocalizedString("repository", comment: ""), NSLocalizedString("owner", comment: "")],
                                                                              normalTextColor: .appColor(.TopBackgroundColor),
                                                                              selectedTextColor: .black)
         }
@@ -41,7 +44,7 @@ class RepositorySearchViewController: BaseViewController {
         didSet {
             self.searchTextField.tintColor = UIColor.gray
             self.searchTextField.setIcon(UIImage(named: "search_simple")!)
-            self.searchTextField.attributedPlaceholder = NSAttributedString(string:"placeholder",
+            self.searchTextField.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("search_repo_here", comment: ""),
                                                                             attributes:[NSAttributedString.Key.foregroundColor: UIColor.darkGray])
             self.searchTextField.delegate = self
         }

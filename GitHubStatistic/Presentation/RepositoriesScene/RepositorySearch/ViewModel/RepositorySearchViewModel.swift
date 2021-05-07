@@ -12,7 +12,8 @@ import RxCocoa
 
 class RepositorySearchViewModel : BaseViewModel {
     
-    let getRecentRepositoriesUseCase : GetRecentRepositoriesUseCase
+    let getRecentRepositoriesUseCase : GetRecentRepositoriesUseCaseProtocol
+    let searchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol
     
     // MARK: Input
     let searchText : Driver<String>! = nil
@@ -23,14 +24,17 @@ class RepositorySearchViewModel : BaseViewModel {
     // MARK: Output
     let searchViewIsUp : Driver<Bool>
     let previousSearchCells : Driver<[Repository]>
+    let newSearchResults : Driver<[Repository]>
     let showSearchButton : Driver<Bool>
     let hidePreviousSearchInterface : Driver<Bool>
     let showNewSearchInterface : Driver<Bool>
     
-    init(getRecentRepositoriesUseCase : GetRecentRepositoriesUseCase) {
+    init(getRecentRepositoriesUseCase : GetRecentRepositoriesUseCaseProtocol, searchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol) {
         self.getRecentRepositoriesUseCase = getRecentRepositoriesUseCase
+        self.searchRepositoriesUseCase = searchRepositoriesUseCase
         self.searchViewIsUp = self.searchViewSwipeGesture.asDriver(onErrorJustReturn: false).filter{$0}
         self.previousSearchCells = self.getRecentRepositoriesUseCase.execute().asDriver(onErrorJustReturn: [Repository]())
+        self.newSearchResults = self.getRecentRepositoriesUseCase.execute().asDriver(onErrorJustReturn: [Repository]())
         self.showSearchButton = self.searchViewSwipeGesture.asDriver(onErrorJustReturn: false).filter{$0}
         
         let searchButtonTappedSubscription = self.searchButtonTap.throttle(.milliseconds(500), latest: false, scheduler: MainScheduler.instance).share()
