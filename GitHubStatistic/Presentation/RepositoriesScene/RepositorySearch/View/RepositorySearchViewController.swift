@@ -29,7 +29,6 @@ class RepositorySearchViewController: BaseViewController {
     
     @IBOutlet weak var searchResultsLabel: UILabel!
     
-    
     @IBOutlet weak var searchButtonBottomToViewBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var searchResultTableView: UITableView! {
@@ -59,7 +58,7 @@ class RepositorySearchViewController: BaseViewController {
     
     @IBOutlet weak var blackCoverView: UIView!
     
-    var viewModel: RepositorySearchViewModel!
+    var viewModel: RepositorySearchViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()

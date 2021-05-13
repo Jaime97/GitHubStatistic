@@ -10,10 +10,26 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 
-class RepositorySearchViewModel {
+protocol RepositorySearchViewModelProtocol {
     
-    let getRecentRepositoriesUseCase : GetRecentRepositoriesUseCaseProtocol
-    let searchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol
+    // MARK: Input
+    var searchText : PublishSubject<String?>! { get }
+    var isSearchByName : PublishSubject<Bool>! { get }
+    var searchViewSwipeGesture : PublishSubject<Bool>! { get }
+    var searchButtonTap : PublishSubject<Void>! { get }
+    
+    // MARK: Output
+    var searchViewIsUp : Driver<Bool> { get }
+    var previousSearchModels : Driver<[Repository]> { get }
+    var newSearchResultModels : Driver<[Repository]> { get }
+    var showSearchButton : Driver<Bool> { get }
+    var hidePreviousSearchInterface : Driver<Bool> { get }
+    var showNewSearchInterface : Driver<Bool> { get }
+    var showSearchResults : Driver<Bool> { get }
+    
+}
+
+class RepositorySearchViewModel: RepositorySearchViewModelProtocol {
     
     // MARK: Input
     let searchText : PublishSubject<String?>! = PublishSubject<String?>()
@@ -24,12 +40,14 @@ class RepositorySearchViewModel {
     // MARK: Output
     let searchViewIsUp : Driver<Bool>
     let previousSearchModels : Driver<[Repository]>
-    var newSearchResultModels : Driver<[Repository]>
+    let newSearchResultModels : Driver<[Repository]>
     let showSearchButton : Driver<Bool>
     let hidePreviousSearchInterface : Driver<Bool>
     let showNewSearchInterface : Driver<Bool>
     let showSearchResults : Driver<Bool>
     
+    private let getRecentRepositoriesUseCase : GetRecentRepositoriesUseCaseProtocol
+    private let searchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol
     private let disposeBag = DisposeBag()
     
     init(getRecentRepositoriesUseCase : GetRecentRepositoriesUseCaseProtocol, searchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol) {
