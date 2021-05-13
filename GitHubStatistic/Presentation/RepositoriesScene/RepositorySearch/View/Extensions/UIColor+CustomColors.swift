@@ -2,7 +2,7 @@
 //  UIColor+CustomColors.swift
 //  GitHubStatistic
 //
-//  Created by user188894 on 06/05/2021.
+//  Created by Jaime Alcántara on 06/05/2021.
 //
 
 import Foundation

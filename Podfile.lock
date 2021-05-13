@@ -27,6 +27,14 @@ PODS:
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
+  - RxSwiftExt (6.0.1):
+    - RxSwiftExt/Core (= 6.0.1)
+    - RxSwiftExt/RxCocoa (= 6.0.1)
+  - RxSwiftExt/Core (6.0.1):
+    - RxSwift (~> 6.0)
+  - RxSwiftExt/RxCocoa (6.0.1):
+    - RxCocoa (~> 6.0)
+    - RxSwiftExt/Core
   - RxTest (6.1.0):
     - RxSwift (= 6.1.0)
   - Swinject (2.7.1)
@@ -41,6 +49,7 @@ DEPENDENCIES:
   - RxGesture
   - RxRealm
   - RxSwift (= 6.1.0)
+  - RxSwiftExt (~> 6)
   - RxTest (= 6.1.0)
   - Swinject (~> 2.7.1)
   - SwinjectStoryboard (from `https://github.com/Swinject/SwinjectStoryboard.git`, commit `0ca45c83a8aa398c153d8a036c95abb4343cfa0c`)
@@ -58,6 +67,7 @@ SPEC REPOS:
     - RxRealm
     - RxRelay
     - RxSwift
+    - RxSwiftExt
     - RxTest
     - Swinject
 
@@ -83,10 +93,11 @@ SPEC CHECKSUMS:
   RxRealm: bd7c601e78cfebe48c24d4550db83c31e1ab2c33
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   RxTest: 9d26616eaff4a7e75f4ecae9b2c24840f2e8218d
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: f0d5b1c16459949d6ff1cbb6610107946b18e1f8
 
-PODFILE CHECKSUM: acad5e08fa714fd0b3d38a22113bf6b924fbd139
+PODFILE CHECKSUM: 3b08cdb239c0fafdceecd8cc68201b620a19897a
 
 COCOAPODS: 1.10.1

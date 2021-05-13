@@ -8,6 +8,7 @@ target 'GitHubStatistic' do
   # Pods for GitHubStatistic
   pod 'RxSwift', '6.1.0'
   pod 'RxCocoa', '6.1.0'
+  pod 'RxSwiftExt', '~> 6'
   pod 'RxRealm'
   pod 'RxAlamofire'
   pod 'RxGesture'

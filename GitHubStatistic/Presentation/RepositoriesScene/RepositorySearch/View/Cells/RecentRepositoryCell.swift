@@ -10,8 +10,8 @@ import UIKit
 
 class RecentRepositoryCell : UICollectionViewCell {
     
-    @IBOutlet weak var repositoryImage: UIImageView!
-    @IBOutlet weak var repositoryName: UILabel!
-    @IBOutlet weak var numberOfCommits: UILabel!
+    @IBOutlet weak var repositoryImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var numberOfCommitsLabel: UILabel!
     
 }
