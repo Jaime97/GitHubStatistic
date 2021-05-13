@@ -1,5 +1,5 @@
 //
-//  RepositorySearchViewModel.swift
+//  GitRepoSearchViewModel.swift
 //  GitHubStatistic
 //
 //  Created by Jaime Alcántara on 06/04/2021.
@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 
-protocol RepositorySearchViewModelProtocol {
+protocol GitRepoSearchViewModelProtocol {
     
     // MARK: Input
     var searchText : PublishSubject<String?>! { get }
@@ -20,8 +20,8 @@ protocol RepositorySearchViewModelProtocol {
     
     // MARK: Output
     var searchViewIsUp : Driver<Bool> { get }
-    var previousSearchModels : Driver<[Repository]> { get }
-    var newSearchResultModels : Driver<[Repository]> { get }
+    var previousSearchModels : Driver<[GitRepository]> { get }
+    var newSearchResultModels : Driver<[GitRepository]> { get }
     var showSearchButton : Driver<Bool> { get }
     var hidePreviousSearchInterface : Driver<Bool> { get }
     var showNewSearchInterface : Driver<Bool> { get }
@@ -29,7 +29,7 @@ protocol RepositorySearchViewModelProtocol {
     
 }
 
-class RepositorySearchViewModel: RepositorySearchViewModelProtocol {
+class GitRepoSearchViewModel: GitRepoSearchViewModelProtocol {
     
     // MARK: Input
     let searchText : PublishSubject<String?>! = PublishSubject<String?>()
@@ -39,8 +39,8 @@ class RepositorySearchViewModel: RepositorySearchViewModelProtocol {
     
     // MARK: Output
     let searchViewIsUp : Driver<Bool>
-    let previousSearchModels : Driver<[Repository]>
-    let newSearchResultModels : Driver<[Repository]>
+    let previousSearchModels : Driver<[GitRepository]>
+    let newSearchResultModels : Driver<[GitRepository]>
     let showSearchButton : Driver<Bool>
     let hidePreviousSearchInterface : Driver<Bool>
     let showNewSearchInterface : Driver<Bool>
@@ -61,7 +61,7 @@ class RepositorySearchViewModel: RepositorySearchViewModelProtocol {
         self.hidePreviousSearchInterface = searchButtonTappedSubscription.map{true}.asDriver(onErrorJustReturn: false)
         self.showNewSearchInterface = searchButtonTappedSubscription.delay(.milliseconds(1000), scheduler: MainScheduler.instance).map{true}.asDriver(onErrorJustReturn: false)
         
-        self.previousSearchModels = self.getRecentRepositoriesUseCase.execute().asDriver(onErrorJustReturn: [Repository]())
+        self.previousSearchModels = self.getRecentRepositoriesUseCase.execute().asDriver(onErrorJustReturn: [GitRepository]())
         
         // Start searching repositories when the search text comes in
         let searchResults = self.searchText.unwrap().filter{$0.trimmingCharacters(in: .whitespaces) != ""}.throttle(.milliseconds(300), latest: false, scheduler: MainScheduler.instance)
@@ -72,15 +72,8 @@ class RepositorySearchViewModel: RepositorySearchViewModelProtocol {
                 searchRepositoriesUseCase.execute(nameToSearch: searchText, typeOfSearch: isSearchByName ? .byRepositoryName : .byOwner)
             }.share()
         
-        self.newSearchResultModels = searchResults.asDriver(onErrorJustReturn: [Repository]())
-        
-        self.showSearchResults = searchResults.map{
-            !$0.isEmpty
-            
-        }.filter{
-            $0==true
-            
-        }.asDriver(onErrorJustReturn: false)
+        self.newSearchResultModels = searchResults.asDriver(onErrorJustReturn: [GitRepository]())
+        self.showSearchResults = searchResults.map{!$0.isEmpty}.filter{$0==true}.asDriver(onErrorJustReturn: false)
         
     }
     

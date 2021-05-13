@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Repository {
+class GitRepository {
     public var image : String
     public var url : String
     public var name : String

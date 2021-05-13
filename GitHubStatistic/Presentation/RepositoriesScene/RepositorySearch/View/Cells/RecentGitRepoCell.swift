@@ -1,20 +1,17 @@
 //
-//  NewRepositorySearchTableViewCell.swift
+//  RecentGitRepoCell.swift
 //  GitHubStatistic
 //
-//  Created by user188894 on 07/05/2021.
+//  Created by Jaime Alcántara on 03/05/2021.
 //
 
+import Foundation
 import UIKit
 
-class NewRepositorySearchTableViewCell: UITableViewCell {
+class RecentGitRepoCell : UICollectionViewCell {
     
     @IBOutlet weak var repositoryImageView: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
-    @IBOutlet weak var ownerLabel: UILabel!
-    
     @IBOutlet weak var numberOfCommitsLabel: UILabel!
     
 }

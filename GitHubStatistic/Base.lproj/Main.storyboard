@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-261" y="106"/>
         </scene>
-        <!--Repository Search View Controller-->
+        <!--Git Repo Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RepositorySearchViewController" customModule="GitHubStatistic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GitRepoSearchViewController" customModule="GitHubStatistic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIO-NR-Ksj" userLabel="searchView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIO-NR-Ksj" userLabel="previousSearchesView">
                                 <rect key="frame" x="0.0" y="478.66666666666674" width="414" height="383.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent repositories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9Q-8j-XGh">
@@ -84,7 +84,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentRepositoryCell" id="Bxz-gn-xDs" customClass="RecentRepositoryCell" customModule="GitHubStatistic" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentGitRepoCell" id="Bxz-gn-xDs" customClass="RecentGitRepoCell" customModule="GitHubStatistic" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="113" height="163"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HWd-eh-8TO">
@@ -328,6 +328,7 @@
                         <outlet property="blackCoverView" destination="JeA-9w-eDd" id="iKr-FQ-0zP"/>
                         <outlet property="newSearchView" destination="1mW-eu-zkm" id="7Eg-nO-iCx"/>
                         <outlet property="noPreviousSearchLabel" destination="6c2-Cv-FEk" id="zcU-JU-5Se"/>
+                        <outlet property="previousSearchesView" destination="kIO-NR-Ksj" id="fjI-Fb-yt2"/>
                         <outlet property="searchButton" destination="CrR-6I-Nh2" id="PXq-5D-q9B"/>
                         <outlet property="searchButtonBottomToViewBottomConstraint" destination="hzs-EC-xhx" id="uZ0-gl-qQO"/>
                         <outlet property="searchCollectionView" destination="j7e-5N-s7m" id="nYm-Av-5yJ"/>
@@ -335,7 +336,6 @@
                         <outlet property="searchResultsLabel" destination="r02-K6-yeS" id="VG1-JC-XtZ"/>
                         <outlet property="searchTextField" destination="bTz-7r-9Fr" id="neQ-bL-ISh"/>
                         <outlet property="searchTypeSegmentedControl" destination="yfT-QG-Sjx" id="2nj-J3-dls"/>
-                        <outlet property="searchView" destination="kIO-NR-Ksj" id="fjI-Fb-yt2"/>
                         <outlet property="searchViewTopToViewCenterConstraint" destination="zmE-0t-9ZV" id="sTg-MI-TjW"/>
                         <outlet property="searchViewTopToViewTopConstraint" destination="lSr-GY-l2b" id="1DN-eB-EEa"/>
                     </connections>

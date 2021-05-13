@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GitRepoSearchViewController.swift
 //  GitHubStatistic
 //
 //  Created by Jaime Alcántara on 05/04/2021.
@@ -11,9 +11,9 @@ import RxGesture
 import RxSwift
 import BetterSegmentedControl
 
-class RepositorySearchViewController: BaseViewController {
+class GitRepoSearchViewController: BaseViewController {
 
-    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var previousSearchesView: UIView!
     
     @IBOutlet weak var newSearchView: UIView!
     
@@ -33,7 +33,7 @@ class RepositorySearchViewController: BaseViewController {
     
     @IBOutlet weak var searchResultTableView: UITableView! {
         didSet {
-            self.searchResultTableView.register(UINib(nibName: "NewRepositorySearchTableViewCell", bundle: nil), forCellReuseIdentifier: "NewRepositorySearchTableViewCell");
+            self.searchResultTableView.register(UINib(nibName: "NewGitRepoSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "NewGitRepoSearchTableViewCell");
         }
     }
     
@@ -58,7 +58,7 @@ class RepositorySearchViewController: BaseViewController {
     
     @IBOutlet weak var blackCoverView: UIView!
     
-    var viewModel: RepositorySearchViewModelProtocol!
+    var viewModel: GitRepoSearchViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +83,7 @@ class RepositorySearchViewController: BaseViewController {
         }.disposed(by: self.disposeBag)
         
         self.viewModel.hidePreviousSearchInterface.drive { hideSearchView in
-            self.changeViewVisibility(view: self.searchView, visibility: !hideSearchView, duration: 0.3, delay: 0.2, options: .curveLinear)
+            self.changeViewVisibility(view: self.previousSearchesView, visibility: !hideSearchView, duration: 0.3, delay: 0.2, options: .curveLinear)
             self.changeViewVisibility(view: self.searchButton, visibility: !hideSearchView, duration: 0.3, delay: 0.2, options: .curveLinear)
         }.disposed(by: self.disposeBag)
         
@@ -96,7 +96,7 @@ class RepositorySearchViewController: BaseViewController {
             self.changeViewVisibility(view: self.searchResultTableView, visibility: showSearchResults, duration: 0.3, delay: 0.2, options: .curveLinear)
         }.disposed(by: self.disposeBag)
         
-        self.viewModel.previousSearchModels.drive(self.searchCollectionView.rx.items(cellIdentifier: "RecentRepositoryCell", cellType: RecentRepositoryCell.self)) { i, cellModel, cell in
+        self.viewModel.previousSearchModels.drive(self.searchCollectionView.rx.items(cellIdentifier: "RecentGitRepoCell", cellType: RecentGitRepoCell.self)) { i, cellModel, cell in
             cell.nameLabel.text = cellModel.name
             cell.numberOfCommitsLabel.text = String(cellModel.numberOfCommits)
         }.disposed(by: self.disposeBag)
@@ -105,7 +105,7 @@ class RepositorySearchViewController: BaseViewController {
         self.searchResultTableView.delegate = nil
         self.searchResultTableView.dataSource = nil
 
-        self.viewModel.newSearchResultModels.drive(self.searchResultTableView.rx.items(cellIdentifier: "NewRepositorySearchTableViewCell", cellType: NewRepositorySearchTableViewCell.self)) { i, cellModel, cell in
+        self.viewModel.newSearchResultModels.drive(self.searchResultTableView.rx.items(cellIdentifier: "NewGitRepoSearchTableViewCell", cellType: NewGitRepoSearchTableViewCell.self)) { i, cellModel, cell in
             cell.nameLabel.text = cellModel.name
             cell.numberOfCommitsLabel.text = String(cellModel.numberOfCommits)
             cell.ownerLabel.text = cellModel.owner
@@ -117,7 +117,7 @@ class RepositorySearchViewController: BaseViewController {
             .bind(to: self.viewModel.searchButtonTap)
             .disposed(by: self.disposeBag)
         
-        self.searchView.rx.swipeGesture([.up, .down]).when(.ended).map { gesture in
+        self.previousSearchesView.rx.swipeGesture([.up, .down]).when(.ended).map { gesture in
             gesture.direction == .up
         }.asObservable()
         .bind(to: self.viewModel.searchViewSwipeGesture)
@@ -161,7 +161,7 @@ class RepositorySearchViewController: BaseViewController {
     }
 }
 
-extension RepositorySearchViewController: UICollectionViewDelegateFlowLayout {
+extension GitRepoSearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let width = collectionView.bounds.width
             let cellWidth = (width - 30) / 2
