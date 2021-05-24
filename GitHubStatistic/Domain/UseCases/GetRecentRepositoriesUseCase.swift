@@ -13,6 +13,13 @@ protocol GetRecentRepositoriesUseCaseProtocol {
 }
 
 class GetRecentRepositoriesUseCase : GetRecentRepositoriesUseCaseProtocol {
+    
+    private let gitRepoSearchRepository:GitRepoSearchRepositoryProtocol
+    
+    init(gitRepoSearchRepository:GitRepoSearchRepositoryProtocol) {
+        self.gitRepoSearchRepository = gitRepoSearchRepository
+    }
+    
     public func execute() -> Single<[GitRepository]> {
         let repository: GitRepository = GitRepository(image: "", url: "", name: "Example 1", owner: "user1", numberOfCommits: 24)
         let repository2: GitRepository = GitRepository(image: "", url: "", name: "Example 2", owner: "Very long user name", numberOfCommits: 35)

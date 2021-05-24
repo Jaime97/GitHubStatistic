@@ -65,7 +65,6 @@ class GitRepoSearchViewModel: GitRepoSearchViewModelProtocol {
         
         // Start searching repositories when the search text comes in
         let searchResults = self.searchText.unwrap().filter{$0.trimmingCharacters(in: .whitespaces) != ""}.throttle(.milliseconds(300), latest: false, scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
             .withLatestFrom(self.isSearchByName) { searchText, isSearchByName in
                 (searchText, isSearchByName)
             }.flatMapLatest { searchText, isSearchByName in

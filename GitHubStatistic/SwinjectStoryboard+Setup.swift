@@ -16,10 +16,16 @@ extension SwinjectStoryboard {
             GitRepoSearchViewModel(getRecentRepositoriesUseCase: r.resolve(GetRecentRepositoriesUseCaseProtocol.self)!, searchRepositoriesUseCase: r.resolve(SearchRepositoriesUseCaseProtocol.self)!)
         }
         defaultContainer.register(GetRecentRepositoriesUseCaseProtocol.self) { r in
-            GetRecentRepositoriesUseCase()
+            GetRecentRepositoriesUseCase(gitRepoSearchRepository: r.resolve(GitRepoSearchRepositoryProtocol.self)!)
         }
         defaultContainer.register(SearchRepositoriesUseCaseProtocol.self) { r in
-            SearchRepositoriesUseCase()
+            SearchRepositoriesUseCase(gitRepoSearchRepository: r.resolve(GitRepoSearchRepositoryProtocol.self)!)
+        }
+        defaultContainer.register(GitRepoSearchRepositoryProtocol.self) { r in
+            GitRepoSearchRepository(gitApiService: r.resolve(GitApiServiceProtocol.self)!)
+        }
+        defaultContainer.register(GitApiServiceProtocol.self) { r in
+            GitApiSevice()
         }
     }
 }

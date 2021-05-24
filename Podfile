@@ -11,6 +11,7 @@ target 'GitHubStatistic' do
   pod 'RxSwiftExt', '~> 6'
   pod 'RxRealm'
   pod 'RxAlamofire'
+  pod 'ObjectMapper', '~> 4.2'
   pod 'RxGesture'
   pod 'Swinject', '~> 2.7.1'
   pod 'BetterSegmentedControl', '~> 2.0'

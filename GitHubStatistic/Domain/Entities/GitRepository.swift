@@ -7,14 +7,14 @@
 
 import Foundation
 
-class GitRepository {
-    public var image : String
-    public var url : String
-    public var name : String
-    public var owner : String
-    public var numberOfCommits: Int
+struct GitRepository {
+    public var image : String?
+    public var url : String?
+    public var name : String?
+    public var owner : String?
+    public var numberOfCommits: Int?
     
-    init(image:String, url:String, name:String, owner:String, numberOfCommits:Int) {
+    init(image:String?, url:String?, name:String?, owner:String?, numberOfCommits:Int?) {
         self.image = image
         self.url = url
         self.name = name
