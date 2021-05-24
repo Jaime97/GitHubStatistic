@@ -97,8 +97,7 @@ class GitRepoSearchViewController: BaseViewController {
         }.disposed(by: self.disposeBag)
         
         self.viewModel.previousSearchModels.drive(self.searchCollectionView.rx.items(cellIdentifier: "RecentGitRepoCell", cellType: RecentGitRepoCell.self)) { i, cellModel, cell in
-            cell.nameLabel.text = cellModel.name
-            cell.numberOfCommitsLabel.text = String(cellModel.numberOfCommits ?? 0)
+            cell.populateCellWithInfo(cellModel: cellModel)
         }.disposed(by: self.disposeBag)
         
         // Prevent issue with RxSwift bind (https://github.com/ReactiveX/RxSwift/issues/675)
@@ -106,9 +105,8 @@ class GitRepoSearchViewController: BaseViewController {
         self.searchResultTableView.dataSource = nil
 
         self.viewModel.newSearchResultModels.drive(self.searchResultTableView.rx.items(cellIdentifier: "NewGitRepoSearchTableViewCell", cellType: NewGitRepoSearchTableViewCell.self)) { i, cellModel, cell in
-            cell.nameLabel.text = cellModel.name
-            cell.numberOfCommitsLabel.text = String(cellModel.numberOfCommits ?? 0)
-            cell.ownerLabel.text = cellModel.owner
+            cell.populateCellWithInfo(cellModel: cellModel)
+            
         }.disposed(by: self.disposeBag)
         
         // Output bindings

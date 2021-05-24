@@ -14,6 +14,7 @@ target 'GitHubStatistic' do
   pod 'ObjectMapper', '~> 4.2'
   pod 'RxGesture'
   pod 'Swinject', '~> 2.7.1'
+  pod 'Kingfisher', '~> 6.0'
   pod 'BetterSegmentedControl', '~> 2.0'
   pod 'SwinjectStoryboard', :git => 'https://github.com/Swinject/SwinjectStoryboard.git', :commit => '0ca45c83a8aa398c153d8a036c95abb4343cfa0c'
 

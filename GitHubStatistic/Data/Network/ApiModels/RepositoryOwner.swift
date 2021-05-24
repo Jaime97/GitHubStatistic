@@ -24,9 +24,9 @@ extension RepositoryOwner: Mappable {
     mutating func mapping(map: Map) {
         login <- map["login"]
         id <- map["id"]
-        nodeID <- map["nodeID"]
-        avatarURL <- map["avatarURL"]
+        nodeID <- map["node_id"]
+        avatarURL <- map["avatar_url"]
         type <- map["type"]
-        siteAdmin <- map["siteAdmin"]
+        siteAdmin <- map["site_admin"]
     }
 }

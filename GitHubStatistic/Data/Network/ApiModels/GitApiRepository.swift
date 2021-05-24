@@ -11,8 +11,8 @@ import ObjectMapper
 
 struct GitApiRepository {
     var identification: Int?
-    var nodeID, name, fullName: String?
-    var welcomePrivate: Bool?
+    var name, fullName: String?
+    var privateAccess: Bool?
     var owner: RepositoryOwner?
     var htmlURL: String?
     var fork: Bool?
@@ -28,18 +28,17 @@ extension GitApiRepository: Mappable {
     
     mutating func mapping(map: Map) {
         identification <- map["id"]
-        nodeID <- map["nodeID"]
         name <- map["name"]
-        fullName <- map["fullName"]
-        welcomePrivate <- map["welcomePrivate"]
+        fullName <- map["full_name"]
+        privateAccess <- map["private"]
         owner <- map["owner"]
-        htmlURL <- map["htmlURL"]
+        htmlURL <- map["html_url"]
         fork <- map["fork"]
         url <- map["url"]
-        commitsURL <- map["commitsURL"]
-        createdAt <- map["createdAt"]
-        updatedAt <- map["updatedAt"]
-        pushedAt <- map["pushedAt"]
+        commitsURL <- map["commits_url"]
+        createdAt <- map["created_at"]
+        updatedAt <- map["updated_at"]
+        pushedAt <- map["pushed_at"]
         size <- map["size"]
     }
 }
