@@ -71,8 +71,8 @@ class GitRepoSearchViewModel: GitRepoSearchViewModelProtocol {
                 searchRepositoriesUseCase.execute(nameToSearch: searchText, typeOfSearch: isSearchByName ? .byRepositoryName : .byOwner)
             }.share()
         
-        self.newSearchResultModels = searchResults.asDriver(onErrorJustReturn: [GitRepository]())
-        self.showSearchResults = searchResults.map{!$0.isEmpty}.filter{$0==true}.asDriver(onErrorJustReturn: false)
+        self.newSearchResultModels = searchResults.delay(.milliseconds(500), scheduler: MainScheduler.instance).asDriver(onErrorJustReturn: [GitRepository]())
+        self.showSearchResults = searchResults.map{!$0.isEmpty}.asDriver(onErrorJustReturn: false)
         
     }
     

@@ -29,6 +29,8 @@ class GitRepoSearchViewController: BaseViewController {
     
     @IBOutlet weak var searchResultsLabel: UILabel!
     
+    @IBOutlet weak var noSearchResultMessageLabel: UILabel!
+    
     @IBOutlet weak var searchButtonBottomToViewBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var searchResultTableView: UITableView! {
@@ -92,8 +94,9 @@ class GitRepoSearchViewController: BaseViewController {
         }.disposed(by: self.disposeBag)
         
         self.viewModel.showSearchResults.drive { showSearchResults in
-            self.changeViewVisibility(view: self.searchResultsLabel, visibility: showSearchResults, duration: 0.3, delay: 0.2, options: .curveLinear)
-            self.changeViewVisibility(view: self.searchResultTableView, visibility: showSearchResults, duration: 0.3, delay: 0.2, options: .curveLinear)
+            self.changeViewVisibility(view: self.searchResultsLabel, visibility: true, duration: 0.3, delay: 0.2, options: .curveLinear)
+            self.changeViewVisibility(view: self.searchResultTableView, visibility: showSearchResults, duration: 0.3, delay: showSearchResults ? 0.7 : 0.2, options: .curveLinear)
+            self.changeViewVisibility(view: self.noSearchResultMessageLabel, visibility: !showSearchResults, duration: 0.3, delay: !showSearchResults ? 0.7 : 0.2, options: .curveLinear)
         }.disposed(by: self.disposeBag)
         
         self.viewModel.previousSearchModels.drive(self.searchCollectionView.rx.items(cellIdentifier: "RecentGitRepoCell", cellType: RecentGitRepoCell.self)) { i, cellModel, cell in

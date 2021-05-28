@@ -69,8 +69,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no previous searches" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c2-Cv-FEk">
-                                        <rect key="frame" x="25" y="93.999999999999943" width="265.66666666666669" height="22.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                        <rect key="frame" x="19.999999999999986" y="93.999999999999943" width="237.66666666666663" height="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -173,7 +173,7 @@
                                 <constraints>
                                     <constraint firstItem="j7e-5N-s7m" firstAttribute="top" secondItem="k9Q-8j-XGh" secondAttribute="bottom" constant="15" id="83x-7N-J6K"/>
                                     <constraint firstItem="6c2-Cv-FEk" firstAttribute="top" secondItem="k9Q-8j-XGh" secondAttribute="bottom" constant="20" id="FOX-bf-WFf"/>
-                                    <constraint firstItem="6c2-Cv-FEk" firstAttribute="leading" secondItem="kIO-NR-Ksj" secondAttribute="leading" constant="25" id="Upz-mN-beu"/>
+                                    <constraint firstItem="6c2-Cv-FEk" firstAttribute="leading" secondItem="kIO-NR-Ksj" secondAttribute="leading" constant="20" id="Upz-mN-beu"/>
                                     <constraint firstItem="k9Q-8j-XGh" firstAttribute="leading" secondItem="kIO-NR-Ksj" secondAttribute="leading" constant="20" id="bKI-0j-yxA"/>
                                     <constraint firstAttribute="trailing" secondItem="k9Q-8j-XGh" secondAttribute="trailing" constant="10" id="bqN-d3-UIt"/>
                                     <constraint firstItem="j7e-5N-s7m" firstAttribute="leading" secondItem="kIO-NR-Ksj" secondAttribute="leading" constant="15" id="gal-Eg-StA"/>
@@ -201,6 +201,12 @@
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mW-eu-zkm" userLabel="newSearchView">
                                 <rect key="frame" x="0.0" y="478.66666666666674" width="414" height="383.33333333333326"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no results for this search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xf-xv-af7">
+                                        <rect key="frame" x="20" y="187.33333333333331" width="262.33333333333331" height="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTz-7r-9Fr">
                                         <rect key="frame" x="35" y="15" width="344" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -267,8 +273,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="XIZ-2J-ZIY" secondAttribute="trailing" constant="15" id="0Rp-cj-ZcU"/>
+                                    <constraint firstItem="3xf-xv-af7" firstAttribute="top" secondItem="r02-K6-yeS" secondAttribute="bottom" constant="15" id="3bl-jd-BKr"/>
                                     <constraint firstItem="bTz-7r-9Fr" firstAttribute="leading" secondItem="1mW-eu-zkm" secondAttribute="leading" constant="35" id="4z7-5u-Nle"/>
                                     <constraint firstAttribute="trailing" secondItem="bTz-7r-9Fr" secondAttribute="trailing" constant="35" id="Bpj-Kd-5mn"/>
+                                    <constraint firstItem="3xf-xv-af7" firstAttribute="leading" secondItem="1mW-eu-zkm" secondAttribute="leading" constant="20" id="HdK-CK-ULW"/>
                                     <constraint firstItem="yfT-QG-Sjx" firstAttribute="leading" secondItem="fJq-Of-neM" secondAttribute="trailing" constant="15" id="Nhv-La-Ef3"/>
                                     <constraint firstItem="fJq-Of-neM" firstAttribute="top" secondItem="Gni-kp-NKR" secondAttribute="bottom" constant="20" id="OtI-A2-3U7"/>
                                     <constraint firstItem="Gni-kp-NKR" firstAttribute="top" secondItem="bTz-7r-9Fr" secondAttribute="bottom" constant="12" id="YtT-Z6-Dlz"/>
@@ -328,6 +336,7 @@
                         <outlet property="blackCoverView" destination="JeA-9w-eDd" id="iKr-FQ-0zP"/>
                         <outlet property="newSearchView" destination="1mW-eu-zkm" id="7Eg-nO-iCx"/>
                         <outlet property="noPreviousSearchLabel" destination="6c2-Cv-FEk" id="zcU-JU-5Se"/>
+                        <outlet property="noSearchResultMessageLabel" destination="3xf-xv-af7" id="Scz-sD-lw2"/>
                         <outlet property="previousSearchesView" destination="kIO-NR-Ksj" id="fjI-Fb-yt2"/>
                         <outlet property="searchButton" destination="CrR-6I-Nh2" id="PXq-5D-q9B"/>
                         <outlet property="searchButtonBottomToViewBottomConstraint" destination="hzs-EC-xhx" id="uZ0-gl-qQO"/>
