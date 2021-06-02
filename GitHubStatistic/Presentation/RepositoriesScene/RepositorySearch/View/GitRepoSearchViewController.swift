@@ -99,8 +99,13 @@ class GitRepoSearchViewController: BaseViewController {
             self.changeViewVisibility(view: self.noSearchResultMessageLabel, visibility: !showSearchResults, duration: 0.3, delay: !showSearchResults ? 0.7 : 0.2, options: .curveLinear)
         }.disposed(by: self.disposeBag)
         
-        self.viewModel.previousSearchModels.drive(self.searchCollectionView.rx.items(cellIdentifier: "RecentGitRepoCell", cellType: RecentGitRepoCell.self)) { i, cellModel, cell in
+        self.viewModel.previousSearchesModels.drive(self.searchCollectionView.rx.items(cellIdentifier: "RecentGitRepoCell", cellType: RecentGitRepoCell.self)) { i, cellModel, cell in
             cell.populateCellWithInfo(cellModel: cellModel)
+        }.disposed(by: self.disposeBag)
+        
+        self.viewModel.showPreviousSearches.drive { showPreviousSearches in
+            self.changeViewVisibility(view: self.searchCollectionView, visibility: showPreviousSearches, duration: 0.3, delay: 0.2, options: .curveLinear)
+            self.changeViewVisibility(view: self.noPreviousSearchLabel, visibility: !showPreviousSearches, duration: 0.3, delay: 0.2, options: .curveLinear)
         }.disposed(by: self.disposeBag)
         
         // Prevent issue with RxSwift bind (https://github.com/ReactiveX/RxSwift/issues/675)
@@ -132,9 +137,13 @@ class GitRepoSearchViewController: BaseViewController {
             .asObservable()
             .map {
                 self.searchTextField.text
-                
             }
             .bind(to: self.viewModel.searchText)
+            .disposed(by: self.disposeBag)
+        
+        self.searchResultTableView.rx
+            .modelSelected(GitRepository.self)
+            .bind(to: self.viewModel.searchResultSelected)
             .disposed(by: self.disposeBag)
 
     }

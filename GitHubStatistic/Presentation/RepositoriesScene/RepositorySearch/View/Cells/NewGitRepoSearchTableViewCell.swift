@@ -20,7 +20,7 @@ class NewGitRepoSearchTableViewCell: UITableViewCell {
     
     func populateCellWithInfo(cellModel: GitRepository) {
         self.nameLabel.text = cellModel.name
-        self.numberOfCommitsLabel.text = String(cellModel.numberOfCommits ?? 0)
+        self.numberOfCommitsLabel.text = String(0)
         self.ownerLabel.text = cellModel.owner
         if let imageUrl = cellModel.image {
             self.repositoryImageView.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named:"user-placeholder"))
