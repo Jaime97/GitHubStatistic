@@ -12,11 +12,13 @@ struct GitRepository {
     public var url : String?
     public var name : String?
     public var owner : String?
+    public var language : String?
     
-    init(image:String?, url:String?, name:String?, owner:String?) {
+    init(image:String?, url:String?, name:String?, owner:String?, language:String?) {
         self.image = image
         self.url = url
         self.name = name
         self.owner = owner
+        self.language = language
     }
 }

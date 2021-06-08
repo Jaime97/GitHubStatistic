@@ -46,7 +46,7 @@ class GitRepoSearchRepository: GitRepoSearchRepositoryProtocol {
     }
     
     func addRecentlyAccessedRepository(repository: GitRepository) {
-        self.persistentStorageManager.saveRepository(repository: DatabaseRepository(image: repository.image, url: repository.url, name: repository.name, owner: repository.owner))
+        self.persistentStorageManager.saveRepository(repository: DatabaseRepository(image: repository.image, url: repository.url, name: repository.name, owner: repository.owner, language: repository.language))
     }
     
 }
@@ -54,7 +54,7 @@ class GitRepoSearchRepository: GitRepoSearchRepositoryProtocol {
 extension GitApiRepository {
     
     func mapToGitRepository() -> GitRepository {
-        return GitRepository(image: self.owner?.avatarURL, url: self.url, name: self.name, owner: self.owner?.login)
+        return GitRepository(image: self.owner?.avatarURL, url: self.url, name: self.name, owner: self.owner?.login, language: self.language)
     }
     
 }
@@ -62,7 +62,7 @@ extension GitApiRepository {
 extension DatabaseRepository {
     
     func mapToGitRepository() -> GitRepository {
-        return GitRepository(image: self.image, url: self.url, name: self.name, owner: self.owner)
+        return GitRepository(image: self.image, url: self.url, name: self.name, owner: self.owner, language: self.language)
     }
     
 }

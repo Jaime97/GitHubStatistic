@@ -20,6 +20,7 @@ struct GitApiRepository {
     var commitsURL: String?
     var createdAt, updatedAt, pushedAt: Date?
     var size: Int?
+    var language: String?
 }
 
 extension GitApiRepository: Mappable {
@@ -40,6 +41,7 @@ extension GitApiRepository: Mappable {
         updatedAt <- map["updated_at"]
         pushedAt <- map["pushed_at"]
         size <- map["size"]
+        language <- map["language"]
     }
 }
 
