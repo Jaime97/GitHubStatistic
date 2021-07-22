@@ -28,6 +28,7 @@ protocol GitRepoSearchViewModelProtocol {
     var hidePreviousSearchInterface : Driver<Bool> { get }
     var showNewSearchInterface : Driver<Bool> { get }
     var showSearchResults : Driver<Bool> { get }
+    var searchResultError : Driver<String> { get }
     
 }
 
@@ -49,6 +50,7 @@ class GitRepoSearchViewModel: GitRepoSearchViewModelProtocol {
     let hidePreviousSearchInterface : Driver<Bool>
     let showNewSearchInterface : Driver<Bool>
     let showSearchResults : Driver<Bool>
+    let searchResultError : Driver<String>
     
     private let getRecentRepositoriesUseCase : GetRecentRepositoriesUseCaseProtocol
     private let searchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol
@@ -80,13 +82,29 @@ class GitRepoSearchViewModel: GitRepoSearchViewModelProtocol {
                 searchRepositoriesUseCase.execute(nameToSearch: searchText, typeOfSearch: isSearchByName ? .byRepositoryName : .byOwner)
             }.share()
         
-        self.newSearchResultModels = searchResults.delay(.milliseconds(500), scheduler: MainScheduler.instance).asDriver(onErrorJustReturn: [GitRepository]())
-        self.showSearchResults = searchResults.map{!$0.isEmpty}.asDriver(onErrorJustReturn: false)
+        self.newSearchResultModels = searchResults.delay(.milliseconds(500), scheduler: MainScheduler.instance)
+            .filter{$0.isSuccess()}
+            .map{try! $0.getSuccessList()}
+            .asDriver(onErrorJustReturn: [GitRepository]())
+        
+        self.searchResultError = searchResults.delay(.milliseconds(500), scheduler: MainScheduler.instance)
+            .filter{!$0.isSuccess()}
+            .map{
+                let errorMessage = try! $0.getErrorMessage()
+                return NSLocalizedString("default_server_list_error", comment: "") + " " + NSLocalizedString("server_message", comment: "") + " " + errorMessage
+            }.asDriver(onErrorJustReturn: NSLocalizedString("default_server_list_error", comment: ""))
+        
+        self.showSearchResults = searchResults.map{
+            switch $0 {
+            case let .success(repoList):
+                return !repoList.isEmpty
+            case .failure(_):
+                return false
+            }
+        }.asDriver(onErrorJustReturn: false)
         
         self.searchResultSelected.subscribe{self.saveRecentRepositoryUseCase.execute(recentRepository: $0)}
             .disposed(by: self.disposeBag)
-
-        
     }
     
     

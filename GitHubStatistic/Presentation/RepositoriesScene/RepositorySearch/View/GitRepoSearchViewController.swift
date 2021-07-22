@@ -114,8 +114,11 @@ class GitRepoSearchViewController: BaseViewController {
 
         self.viewModel.newSearchResultModels.drive(self.searchResultTableView.rx.items(cellIdentifier: "NewGitRepoSearchTableViewCell", cellType: NewGitRepoSearchTableViewCell.self)) { i, cellModel, cell in
             cell.populateCellWithInfo(cellModel: cellModel)
-            
         }.disposed(by: self.disposeBag)
+        
+        self.viewModel.searchResultError
+            .drive{self.showSimpleErrorAlert(message: $0)}
+            .disposed(by: self.disposeBag)
         
         // Output bindings
         
@@ -173,6 +176,17 @@ class GitRepoSearchViewController: BaseViewController {
         UIView.animate(withDuration: duration, delay: delay, options: options) {
             view.alpha = visibility ? 1.0 : 0.0
         }
+    }
+    
+    private func showSimpleErrorAlert(message:String) {
+        self.showAlert(title: NSLocalizedString("error", comment: ""), message: message, buttonTitle: NSLocalizedString("ok", comment: ""))
+    }
+    
+    
+    private func showAlert(title:String, message:String, buttonTitle:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler:nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

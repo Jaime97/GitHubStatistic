@@ -10,8 +10,8 @@ import RxSwift
 
 protocol GitRepoSearchRepositoryProtocol {
     
-    func getRepositoriesByUser(userToSearch: String) -> Observable<[GitRepository]?>
-    func getRepositoriesByName(nameToSearch: String, whereToSearch: String) -> Observable<[GitRepository]?>
+    func getRepositoriesByUser(userToSearch: String) -> Observable<GitRepositoryListResult>
+    func getRepositoriesByName(nameToSearch: String, whereToSearch: String) -> Observable<GitRepositoryListResult>
     func getRecentlyAccessedRepositories() -> Observable<[GitRepository]>
     func addRecentlyAccessedRepository(repository: GitRepository)
     
@@ -27,16 +27,12 @@ class GitRepoSearchRepository: GitRepoSearchRepositoryProtocol {
         self.persistentStorageManager = persistentStorageManager
     }
     
-    func getRepositoriesByUser(userToSearch: String) -> Observable<[GitRepository]?> {
-        return self.gitApiService.getRepositoriesByUser(userToSearch: userToSearch).map { gitApiRepositoryList in
-            gitApiRepositoryList?.map {$0.mapToGitRepository()}
-        }
+    func getRepositoriesByUser(userToSearch: String) -> Observable<GitRepositoryListResult> {
+        return self.gitApiService.getRepositoriesByUser(userToSearch: userToSearch).map { $0.maptoGitRepositoryListResult()}
     }
     
-    func getRepositoriesByName(nameToSearch: String, whereToSearch: String) -> Observable<[GitRepository]?> {
-        return self.gitApiService.getRepositoriesByName(nameToSearch: nameToSearch, whereToSearch: whereToSearch).map { gitApiRepositoryList in
-            gitApiRepositoryList?.map {$0.mapToGitRepository()}
-        }
+    func getRepositoriesByName(nameToSearch: String, whereToSearch: String) -> Observable<GitRepositoryListResult> {
+        return self.gitApiService.getRepositoriesByName(nameToSearch: nameToSearch, whereToSearch: whereToSearch).map { $0.maptoGitRepositoryListResult()}
     }
     
     func getRecentlyAccessedRepositories() -> Observable<[GitRepository]> {
@@ -49,6 +45,28 @@ class GitRepoSearchRepository: GitRepoSearchRepositoryProtocol {
         self.persistentStorageManager.saveRepository(repository: DatabaseRepository(image: repository.image, url: repository.url, name: repository.name, owner: repository.owner, language: repository.language))
     }
     
+}
+
+extension GitApiResult where Value == GitApiSuccessResponse, Error == GitApiError {
+    func maptoGitRepositoryListResult() -> GitRepositoryListResult {
+        switch self {
+        case let .success(gitApiResponse):
+            return GitRepositoryListResult.init(value: gitApiResponse.repositoryItems.map{$0.mapToGitRepository()})
+        case let .failure(gitApiError):
+            return GitRepositoryListResult.init(error: gitApiError.message ?? "Error connecting to the server")
+        }
+    }
+}
+
+extension GitApiResult where Value == [GitApiRepository], Error == GitApiError {
+    func maptoGitRepositoryListResult() -> GitRepositoryListResult {
+        switch self {
+        case let .success(gitApiResponse):
+            return GitRepositoryListResult.init(value: gitApiResponse.map{$0.mapToGitRepository()})
+        case let .failure(gitApiError):
+            return GitRepositoryListResult.init(error: gitApiError.message ?? "Error connecting to the server")
+        }
+    }
 }
 
 extension GitApiRepository {

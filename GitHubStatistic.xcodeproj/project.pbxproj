@@ -11,7 +11,7 @@
 		37100EB82652883C005F5561 /* GitApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37100EB72652883C005F5561 /* GitApiRepository.swift */; };
 		372C865F264419AF00B31018 /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C865E264419AF00B31018 /* UIColor+CustomColors.swift */; };
 		372C86642644209F00B31018 /* SearchRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C86632644209F00B31018 /* SearchRepositoriesUseCase.swift */; };
-		372FAB5E2657CE6B0001F024 /* GitApiSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372FAB5D2657CE6B0001F024 /* GitApiSearchResponse.swift */; };
+		372FAB5E2657CE6B0001F024 /* GitApiSuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372FAB5D2657CE6B0001F024 /* GitApiSuccessResponse.swift */; };
 		3735A688264D491F0004FFD6 /* GitRepoSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3735A687264D491F0004FFD6 /* GitRepoSearchRepository.swift */; };
 		3745E91126271938000B82C6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745E91026271938000B82C6 /* GradientView.swift */; };
 		374695E2264952BF00678301 /* BetterSegmentedControl+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374695E1264952BF00678301 /* BetterSegmentedControl+Rx.swift */; };
@@ -38,8 +38,12 @@
 		37DE0C83263C1FF100AD4B0C /* GetRecentRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE0C82263C1FF100AD4B0C /* GetRecentRepositoriesUseCase.swift */; };
 		37DE0C88263C277500AD4B0C /* GitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE0C87263C277500AD4B0C /* GitRepository.swift */; };
 		4136EF172667DBCB004D0B6B /* SaveRecentRepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4136EF162667DBCB004D0B6B /* SaveRecentRepositoryUseCase.swift */; };
+		4137CB2E26722F0200403F0B /* GitRepositoryListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137CB2D26722F0200403F0B /* GitRepositoryListResult.swift */; };
 		413AD4352664FB5D0061E383 /* PersistentStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413AD4342664FB5D0061E383 /* PersistentStorageManager.swift */; };
 		413AD4472664FC580061E383 /* DatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413AD4462664FC580061E383 /* DatabaseRepository.swift */; };
+		4141CC622670E6B800300C56 /* GitApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4141CC612670E6B800300C56 /* GitApiError.swift */; };
+		4141CC6D2670EC5900300C56 /* GitApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4141CC6C2670EC5900300C56 /* GitApiResult.swift */; };
+		4141CC742670EDFA00300C56 /* Observable+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4141CC732670EDFA00300C56 /* Observable+Decode.swift */; };
 		4152C93A266FD17A00ED585A /* String+ColorSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152C939266FD17A00ED585A /* String+ColorSeed.swift */; };
 		58763032430E8A25161835BD /* Pods_GitHubStatistic_GitHubStatisticUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F35AE288897C05A5C605BD /* Pods_GitHubStatistic_GitHubStatisticUITests.framework */; };
 		C9193A44B47FA368026AC1BF /* Pods_GitHubStatisticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7FBA737FC16796D82207597 /* Pods_GitHubStatisticTests.framework */; };
@@ -68,7 +72,7 @@
 		37100EB72652883C005F5561 /* GitApiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApiRepository.swift; sourceTree = "<group>"; };
 		372C865E264419AF00B31018 /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
 		372C86632644209F00B31018 /* SearchRepositoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesUseCase.swift; sourceTree = "<group>"; };
-		372FAB5D2657CE6B0001F024 /* GitApiSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApiSearchResponse.swift; sourceTree = "<group>"; };
+		372FAB5D2657CE6B0001F024 /* GitApiSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApiSuccessResponse.swift; sourceTree = "<group>"; };
 		3735A687264D491F0004FFD6 /* GitRepoSearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoSearchRepository.swift; sourceTree = "<group>"; };
 		3745E91026271938000B82C6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		374695E1264952BF00678301 /* BetterSegmentedControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BetterSegmentedControl+Rx.swift"; sourceTree = "<group>"; };
@@ -104,8 +108,12 @@
 		37DE0C82263C1FF100AD4B0C /* GetRecentRepositoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecentRepositoriesUseCase.swift; sourceTree = "<group>"; };
 		37DE0C87263C277500AD4B0C /* GitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepository.swift; sourceTree = "<group>"; };
 		4136EF162667DBCB004D0B6B /* SaveRecentRepositoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRecentRepositoryUseCase.swift; sourceTree = "<group>"; };
+		4137CB2D26722F0200403F0B /* GitRepositoryListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryListResult.swift; sourceTree = "<group>"; };
 		413AD4342664FB5D0061E383 /* PersistentStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistentStorageManager.swift; path = GitHubStatistic/Data/PersistentStorages/PersistentStorageManager.swift; sourceTree = SOURCE_ROOT; };
 		413AD4462664FC580061E383 /* DatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepository.swift; sourceTree = "<group>"; };
+		4141CC612670E6B800300C56 /* GitApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApiError.swift; sourceTree = "<group>"; };
+		4141CC6C2670EC5900300C56 /* GitApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApiResult.swift; sourceTree = "<group>"; };
+		4141CC732670EDFA00300C56 /* Observable+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Decode.swift"; sourceTree = "<group>"; };
 		4152C939266FD17A00ED585A /* String+ColorSeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ColorSeed.swift"; sourceTree = "<group>"; };
 		4FB6C989FCDB94B3713DE568 /* Pods-GitHubStatisticTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubStatisticTests.debug.xcconfig"; path = "Target Support Files/Pods-GitHubStatisticTests/Pods-GitHubStatisticTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DDE817251D263D47F79F3FC /* Pods-GitHubStatistic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubStatistic.debug.xcconfig"; path = "Target Support Files/Pods-GitHubStatistic/Pods-GitHubStatistic.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,7 +157,9 @@
 			children = (
 				37100EB72652883C005F5561 /* GitApiRepository.swift */,
 				374CC5B426552AF6005A2254 /* RepositoryOwner.swift */,
-				372FAB5D2657CE6B0001F024 /* GitApiSearchResponse.swift */,
+				372FAB5D2657CE6B0001F024 /* GitApiSuccessResponse.swift */,
+				4141CC612670E6B800300C56 /* GitApiError.swift */,
+				4141CC6C2670EC5900300C56 /* GitApiResult.swift */,
 			);
 			path = ApiModels;
 			sourceTree = "<group>";
@@ -325,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				37DE0C87263C277500AD4B0C /* GitRepository.swift */,
+				4137CB2D26722F0200403F0B /* GitRepositoryListResult.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -352,6 +363,7 @@
 		37DE0C80263C1F8900AD4B0C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				4141CC722670ECAA00300C56 /* Extensions */,
 				37100EB6265287F6005F5561 /* ApiModels */,
 				3753E2A5264D4ECA00730ACD /* GitApiService.swift */,
 			);
@@ -373,6 +385,14 @@
 				413AD4462664FC580061E383 /* DatabaseRepository.swift */,
 			);
 			path = StorageModels;
+			sourceTree = "<group>";
+		};
+		4141CC722670ECAA00300C56 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4141CC732670EDFA00300C56 /* Observable+Decode.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		432FF5D503E2E33126D2AF75 /* Frameworks */ = {
@@ -659,8 +679,10 @@
 			files = (
 				413AD4472664FC580061E383 /* DatabaseRepository.swift in Sources */,
 				37771ED72640180D00970BCF /* RecentGitRepoCell.swift in Sources */,
+				4141CC6D2670EC5900300C56 /* GitApiResult.swift in Sources */,
 				372C86642644209F00B31018 /* SearchRepositoriesUseCase.swift in Sources */,
 				37100EB82652883C005F5561 /* GitApiRepository.swift in Sources */,
+				4137CB2E26722F0200403F0B /* GitRepositoryListResult.swift in Sources */,
 				374695E2264952BF00678301 /* BetterSegmentedControl+Rx.swift in Sources */,
 				4152C93A266FD17A00ED585A /* String+ColorSeed.swift in Sources */,
 				374F7EFA261C773600366445 /* GitRepoSearchViewModel.swift in Sources */,
@@ -671,7 +693,7 @@
 				37BCA1BD261B26100021743A /* AppDelegate.swift in Sources */,
 				377D0AC62642EBA600547F00 /* UITextField+Icon.swift in Sources */,
 				374AB8C126556D1E004DEDA8 /* Constants.swift in Sources */,
-				372FAB5E2657CE6B0001F024 /* GitApiSearchResponse.swift in Sources */,
+				372FAB5E2657CE6B0001F024 /* GitApiSuccessResponse.swift in Sources */,
 				4136EF172667DBCB004D0B6B /* SaveRecentRepositoryUseCase.swift in Sources */,
 				37DE0C83263C1FF100AD4B0C /* GetRecentRepositoriesUseCase.swift in Sources */,
 				37BCF6212639778500B02237 /* SwinjectStoryboard+Setup.swift in Sources */,
@@ -680,6 +702,8 @@
 				372C865F264419AF00B31018 /* UIColor+CustomColors.swift in Sources */,
 				37DE0C88263C277500AD4B0C /* GitRepository.swift in Sources */,
 				37A282812631930D00C874BF /* BaseViewController.swift in Sources */,
+				4141CC742670EDFA00300C56 /* Observable+Decode.swift in Sources */,
+				4141CC622670E6B800300C56 /* GitApiError.swift in Sources */,
 				37BCA1BF261B26100021743A /* SceneDelegate.swift in Sources */,
 				3753E2A6264D4ECA00730ACD /* GitApiService.swift in Sources */,
 				374CC5B526552AF6005A2254 /* RepositoryOwner.swift in Sources */,

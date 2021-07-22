@@ -6,27 +6,20 @@
 //
 
 import Foundation
-import ObjectMapper
 
-struct RepositoryOwner {
-    var login: String?
-    var id: Int?
-    var nodeID: String?
-    var avatarURL: String?
-    var type: String?
-    var siteAdmin: Bool?
-}
+struct RepositoryOwner: Codable {
+    let login: String?
+    let id: Int?
+    let nodeID: String?
+    let avatarURL: String?
+    let type: String?
+    let siteAdmin: Bool?
 
-extension RepositoryOwner: Mappable {
-    init?(map: Map) {
-    }
-    
-    mutating func mapping(map: Map) {
-        login <- map["login"]
-        id <- map["id"]
-        nodeID <- map["node_id"]
-        avatarURL <- map["avatar_url"]
-        type <- map["type"]
-        siteAdmin <- map["site_admin"]
+    enum CodingKeys: String, CodingKey {
+        case login, id
+        case nodeID = "node_id"
+        case avatarURL = "avatar_url"
+        case type
+        case siteAdmin = "site_admin"
     }
 }

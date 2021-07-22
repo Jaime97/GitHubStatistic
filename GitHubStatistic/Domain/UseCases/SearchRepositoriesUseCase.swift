@@ -14,7 +14,7 @@ enum TypeOfSearch {
 }
 
 protocol SearchRepositoriesUseCaseProtocol {
-    func execute(nameToSearch:String, typeOfSearch:TypeOfSearch) -> Observable<[GitRepository]>
+    func execute(nameToSearch:String, typeOfSearch:TypeOfSearch) -> Observable<GitRepositoryListResult>
 }
 
 class SearchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol {
@@ -25,9 +25,7 @@ class SearchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol {
         self.gitRepoSearchRepository = gitRepoSearchRepository
     }
     
-    public func execute(nameToSearch:String, typeOfSearch:TypeOfSearch) -> Observable<[GitRepository]> {
-        return ((typeOfSearch == .byRepositoryName) ? self.gitRepoSearchRepository.getRepositoriesByName(nameToSearch: nameToSearch, whereToSearch: Constants.Data.nameParameterValue) : self.gitRepoSearchRepository.getRepositoriesByUser(userToSearch: nameToSearch)).map { gitRepoList in
-            gitRepoList ?? [GitRepository]()
-        }
+    public func execute(nameToSearch:String, typeOfSearch:TypeOfSearch) -> Observable<GitRepositoryListResult> {
+        return ((typeOfSearch == .byRepositoryName) ? self.gitRepoSearchRepository.getRepositoriesByName(nameToSearch: nameToSearch, whereToSearch: Constants.Data.nameParameterValue) : self.gitRepoSearchRepository.getRepositoriesByUser(userToSearch: nameToSearch))
     }
 }

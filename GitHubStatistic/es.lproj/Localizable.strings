@@ -9,3 +9,7 @@
 "search_repo_here" = "Busca tu repositorio aquí";
 "repository" = "Repositorio";
 "owner" = "Dueño";
+"ok" = "Vale";
+"error" = "Error";
+"default_server_list_error" = "Ha habido un error obteniendo la lista de repositorios. Por favor, inténtalo de nuevo más tarde.";
+"server_message" = "Mensaje del servidor:";

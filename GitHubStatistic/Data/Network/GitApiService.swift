@@ -8,38 +8,23 @@
 import Foundation
 import RxAlamofire
 import RxSwift
-import ObjectMapper
 
 protocol GitApiServiceProtocol {
     
-    func getRepositoriesByName(nameToSearch: String, whereToSearch: String) -> Observable<[GitApiRepository]?>
+    func getRepositoriesByName(nameToSearch: String, whereToSearch: String) -> Observable<GitApiResult<GitApiSuccessResponse, GitApiError>>
     
-    func getRepositoriesByUser(userToSearch: String) -> Observable<[GitApiRepository]?>
+    func getRepositoriesByUser(userToSearch: String) -> Observable<GitApiResult<[GitApiRepository], GitApiError>>
     
 }
 
 class GitApiSevice: GitApiServiceProtocol {
     
-    func getRepositoriesByName(nameToSearch: String, whereToSearch: String) -> Observable<[GitApiRepository]?> {
-        return RxAlamofire.json(.get,
-                                Constants.Data.gitApiUrl + Constants.Data.gitApiSearchPath,
-                                parameters: [Constants.Data.searchParameter: nameToSearch, Constants.Data.whereToSearchParameter: whereToSearch]).map { json -> [GitApiRepository]? in
-                                        /*guard let gitRepositoryList = Mapper<GitApiRepository>().mapArray(JSONObject: json) else {
-                                            //throw ApiError(message: "ObjectMapper can't mapping", code: 422)
-                                            throw Error
-                                        }*/
-                                    let response = Mapper<GitApiSearchResponse>().map(JSONObject: json)!
-                                    return response.items
-                                }
+    func getRepositoriesByName(nameToSearch: String, whereToSearch: String) -> Observable<GitApiResult<GitApiSuccessResponse, GitApiError>> {
+        return RxAlamofire.request(.get, Constants.Data.gitApiUrl + Constants.Data.gitApiSearchPath,
+                         parameters: [Constants.Data.searchParameter: nameToSearch, Constants.Data.whereToSearchParameter: whereToSearch]).responseData().expectingObject(ofType: GitApiSuccessResponse.self)
     }
     
-    func getRepositoriesByUser(userToSearch: String) -> Observable<[GitApiRepository]?> {
-        return RxAlamofire.json(.get, Constants.Data.gitApiUrl + Constants.Data.gitApiUsernamePath.replacingOccurrences(of: "{username}", with: userToSearch)).map { json -> [GitApiRepository]? in
-            /*guard let gitRepositoryList = Mapper<GitApiRepository>().mapArray(JSONObject: json) else {
-                //throw ApiError(message: "ObjectMapper can't mapping", code: 422)
-                throw Error
-            }*/
-            return Mapper<GitApiRepository>().mapArray(JSONObject: json)!
-        }
+    func getRepositoriesByUser(userToSearch: String) -> Observable<GitApiResult<[GitApiRepository], GitApiError>> {
+        return RxAlamofire.request(.get, Constants.Data.gitApiUrl + Constants.Data.gitApiUsernamePath.replacingOccurrences(of: "{username}", with: userToSearch)).responseData().expectingObject(ofType: [GitApiRepository].self)
     }
 }
