@@ -61,6 +61,7 @@ class GitRepoSearchViewController: BaseViewController {
     @IBOutlet weak var blackCoverView: UIView!
     
     var viewModel: GitRepoSearchViewModelProtocol!
+    var logger : LoggerProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()

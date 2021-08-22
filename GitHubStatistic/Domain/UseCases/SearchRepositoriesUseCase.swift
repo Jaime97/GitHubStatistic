@@ -20,8 +20,10 @@ protocol SearchRepositoriesUseCaseProtocol {
 class SearchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol {
     
     private let gitRepoSearchRepository:GitRepoSearchRepositoryProtocol
+    private let logger : LoggerProtocol
     
-    init(gitRepoSearchRepository:GitRepoSearchRepositoryProtocol) {
+    init(gitRepoSearchRepository:GitRepoSearchRepositoryProtocol, logger: LoggerProtocol) {
+        self.logger = logger
         self.gitRepoSearchRepository = gitRepoSearchRepository
     }
     

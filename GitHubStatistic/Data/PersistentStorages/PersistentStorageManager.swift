@@ -20,12 +20,13 @@ protocol PersistentStorageManagerProtocol {
 
 class PersistentStorageManager : PersistentStorageManagerProtocol {
     
-    let database : Realm
+    private let database : Realm
+    private let logger : LoggerProtocol
     
-    init(database: Realm) {
+    init(database: Realm, logger: LoggerProtocol) {
         self.database = database
+        self.logger = logger
     }
-    
     
     func getAllRepositories() -> Observable<Results<DatabaseRepository>> {
         let repositories = self.database.objects(DatabaseRepository.self)

@@ -39,11 +39,13 @@
 		37DE0C88263C277500AD4B0C /* GitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE0C87263C277500AD4B0C /* GitRepository.swift */; };
 		4136EF172667DBCB004D0B6B /* SaveRecentRepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4136EF162667DBCB004D0B6B /* SaveRecentRepositoryUseCase.swift */; };
 		4137CB2E26722F0200403F0B /* GitRepositoryListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137CB2D26722F0200403F0B /* GitRepositoryListResult.swift */; };
+		41394E8326D251D300CE622D /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41394E8226D251D300CE622D /* OSLogger.swift */; };
 		413AD4352664FB5D0061E383 /* PersistentStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413AD4342664FB5D0061E383 /* PersistentStorageManager.swift */; };
 		413AD4472664FC580061E383 /* DatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413AD4462664FC580061E383 /* DatabaseRepository.swift */; };
 		4141CC622670E6B800300C56 /* GitApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4141CC612670E6B800300C56 /* GitApiError.swift */; };
 		4141CC6D2670EC5900300C56 /* GitApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4141CC6C2670EC5900300C56 /* GitApiResult.swift */; };
 		4141CC742670EDFA00300C56 /* Observable+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4141CC732670EDFA00300C56 /* Observable+Decode.swift */; };
+		4151FB6026D132A000CE28BD /* LoggerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FB5F26D132A000CE28BD /* LoggerProtocol.swift */; };
 		4152C93A266FD17A00ED585A /* String+ColorSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152C939266FD17A00ED585A /* String+ColorSeed.swift */; };
 		58763032430E8A25161835BD /* Pods_GitHubStatistic_GitHubStatisticUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F35AE288897C05A5C605BD /* Pods_GitHubStatistic_GitHubStatisticUITests.framework */; };
 		C9193A44B47FA368026AC1BF /* Pods_GitHubStatisticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7FBA737FC16796D82207597 /* Pods_GitHubStatisticTests.framework */; };
@@ -109,11 +111,13 @@
 		37DE0C87263C277500AD4B0C /* GitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepository.swift; sourceTree = "<group>"; };
 		4136EF162667DBCB004D0B6B /* SaveRecentRepositoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRecentRepositoryUseCase.swift; sourceTree = "<group>"; };
 		4137CB2D26722F0200403F0B /* GitRepositoryListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryListResult.swift; sourceTree = "<group>"; };
+		41394E8226D251D300CE622D /* OSLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogger.swift; sourceTree = "<group>"; };
 		413AD4342664FB5D0061E383 /* PersistentStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistentStorageManager.swift; path = GitHubStatistic/Data/PersistentStorages/PersistentStorageManager.swift; sourceTree = SOURCE_ROOT; };
 		413AD4462664FC580061E383 /* DatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepository.swift; sourceTree = "<group>"; };
 		4141CC612670E6B800300C56 /* GitApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApiError.swift; sourceTree = "<group>"; };
 		4141CC6C2670EC5900300C56 /* GitApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApiResult.swift; sourceTree = "<group>"; };
 		4141CC732670EDFA00300C56 /* Observable+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Decode.swift"; sourceTree = "<group>"; };
+		4151FB5F26D132A000CE28BD /* LoggerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerProtocol.swift; sourceTree = "<group>"; };
 		4152C939266FD17A00ED585A /* String+ColorSeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ColorSeed.swift"; sourceTree = "<group>"; };
 		4FB6C989FCDB94B3713DE568 /* Pods-GitHubStatisticTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubStatisticTests.debug.xcconfig"; path = "Target Support Files/Pods-GitHubStatisticTests/Pods-GitHubStatisticTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DDE817251D263D47F79F3FC /* Pods-GitHubStatistic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubStatistic.debug.xcconfig"; path = "Target Support Files/Pods-GitHubStatistic/Pods-GitHubStatistic.debug.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 		37BCA1BB261B26100021743A /* GitHubStatistic */ = {
 			isa = PBXGroup;
 			children = (
+				4151FB5E26D1328400CE28BD /* Logger */,
 				374F7EFE261C7BBA00366445 /* Base */,
 				37BCA20A261B266E0021743A /* Data */,
 				37BCA204261B266E0021743A /* Domain */,
@@ -370,6 +375,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		41394E7C26D2509200CE622D /* OSLogger */ = {
+			isa = PBXGroup;
+			children = (
+				41394E8226D251D300CE622D /* OSLogger.swift */,
+			);
+			path = OSLogger;
+			sourceTree = "<group>";
+		};
 		413AD4392664FBF00061E383 /* PersistentStorages */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +406,15 @@
 				4141CC732670EDFA00300C56 /* Observable+Decode.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4151FB5E26D1328400CE28BD /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				41394E7C26D2509200CE622D /* OSLogger */,
+				4151FB5F26D132A000CE28BD /* LoggerProtocol.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		432FF5D503E2E33126D2AF75 /* Frameworks */ = {
@@ -686,6 +708,7 @@
 				374695E2264952BF00678301 /* BetterSegmentedControl+Rx.swift in Sources */,
 				4152C93A266FD17A00ED585A /* String+ColorSeed.swift in Sources */,
 				374F7EFA261C773600366445 /* GitRepoSearchViewModel.swift in Sources */,
+				41394E8326D251D300CE622D /* OSLogger.swift in Sources */,
 				37B528E126454E7600617D83 /* NewGitRepoSearchTableViewCell.swift in Sources */,
 				3745E91126271938000B82C6 /* GradientView.swift in Sources */,
 				3735A688264D491F0004FFD6 /* GitRepoSearchRepository.swift in Sources */,
@@ -698,6 +721,7 @@
 				37DE0C83263C1FF100AD4B0C /* GetRecentRepositoriesUseCase.swift in Sources */,
 				37BCF6212639778500B02237 /* SwinjectStoryboard+Setup.swift in Sources */,
 				37DC6EF92641769C0061CB04 /* UIView+Borders.swift in Sources */,
+				4151FB6026D132A000CE28BD /* LoggerProtocol.swift in Sources */,
 				413AD4352664FB5D0061E383 /* PersistentStorageManager.swift in Sources */,
 				372C865F264419AF00B31018 /* UIColor+CustomColors.swift in Sources */,
 				37DE0C88263C277500AD4B0C /* GitRepository.swift in Sources */,

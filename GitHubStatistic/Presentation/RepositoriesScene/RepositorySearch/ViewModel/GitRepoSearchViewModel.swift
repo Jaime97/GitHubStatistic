@@ -56,8 +56,10 @@ class GitRepoSearchViewModel: GitRepoSearchViewModelProtocol {
     private let searchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol
     private let saveRecentRepositoryUseCase : SaveRecentRepositoryUseCaseProtocol
     private let disposeBag = DisposeBag()
+    private let logger : LoggerProtocol
     
-    init(getRecentRepositoriesUseCase : GetRecentRepositoriesUseCaseProtocol, searchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol, saveRecentRepositoryUseCase: SaveRecentRepositoryUseCaseProtocol) {
+    init(getRecentRepositoriesUseCase : GetRecentRepositoriesUseCaseProtocol, searchRepositoriesUseCase : SearchRepositoriesUseCaseProtocol, saveRecentRepositoryUseCase: SaveRecentRepositoryUseCaseProtocol, logger: LoggerProtocol) {
+        self.logger = logger
         self.getRecentRepositoriesUseCase = getRecentRepositoriesUseCase
         self.searchRepositoriesUseCase = searchRepositoriesUseCase
         self.saveRecentRepositoryUseCase = saveRecentRepositoryUseCase

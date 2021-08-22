@@ -15,8 +15,10 @@ protocol SaveRecentRepositoryUseCaseProtocol {
 class SaveRecentRepositoryUseCase : SaveRecentRepositoryUseCaseProtocol {
     
     private let gitRepoSearchRepository:GitRepoSearchRepositoryProtocol
+    private let logger : LoggerProtocol
     
-    init(gitRepoSearchRepository:GitRepoSearchRepositoryProtocol) {
+    init(gitRepoSearchRepository:GitRepoSearchRepositoryProtocol, logger: LoggerProtocol) {
+        self.logger = logger
         self.gitRepoSearchRepository = gitRepoSearchRepository
     }
     

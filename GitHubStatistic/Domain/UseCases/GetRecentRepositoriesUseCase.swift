@@ -15,8 +15,10 @@ protocol GetRecentRepositoriesUseCaseProtocol {
 class GetRecentRepositoriesUseCase : GetRecentRepositoriesUseCaseProtocol {
     
     private let gitRepoSearchRepository:GitRepoSearchRepositoryProtocol
+    private let logger : LoggerProtocol
     
-    init(gitRepoSearchRepository:GitRepoSearchRepositoryProtocol) {
+    init(gitRepoSearchRepository:GitRepoSearchRepositoryProtocol, logger: LoggerProtocol) {
+        self.logger = logger
         self.gitRepoSearchRepository = gitRepoSearchRepository
     }
     

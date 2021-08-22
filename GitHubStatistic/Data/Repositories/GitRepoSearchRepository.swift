@@ -21,10 +21,12 @@ class GitRepoSearchRepository: GitRepoSearchRepositoryProtocol {
 
     private let gitApiService: GitApiServiceProtocol
     private let persistentStorageManager: PersistentStorageManagerProtocol
+    private let logger : LoggerProtocol
     
-    init(gitApiService:GitApiServiceProtocol, persistentStorageManager: PersistentStorageManagerProtocol) {
+    init(gitApiService:GitApiServiceProtocol, persistentStorageManager: PersistentStorageManagerProtocol, logger: LoggerProtocol) {
         self.gitApiService = gitApiService
         self.persistentStorageManager = persistentStorageManager
+        self.logger = logger
     }
     
     func getRepositoriesByUser(userToSearch: String) -> Observable<GitRepositoryListResult> {

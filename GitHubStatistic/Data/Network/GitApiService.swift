@@ -19,6 +19,12 @@ protocol GitApiServiceProtocol {
 
 class GitApiSevice: GitApiServiceProtocol {
     
+    private let logger : LoggerProtocol
+    
+    init(logger: LoggerProtocol) {
+        self.logger = logger
+    }
+    
     func getRepositoriesByName(nameToSearch: String, whereToSearch: String) -> Observable<GitApiResult<GitApiSuccessResponse, GitApiError>> {
         return RxAlamofire.request(.get, Constants.Data.gitApiUrl + Constants.Data.gitApiSearchPath,
                          parameters: [Constants.Data.searchParameter: nameToSearch, Constants.Data.whereToSearchParameter: whereToSearch]).responseData().expectingObject(ofType: GitApiSuccessResponse.self)
