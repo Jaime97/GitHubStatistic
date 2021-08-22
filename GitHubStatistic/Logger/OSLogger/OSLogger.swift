@@ -10,20 +10,15 @@ import OSLog
 
 class OSLogger:LoggerProtocol {
     
-    public struct Defaults {
-        public static let category = LogCategory.defaultLog
-        public static let isPrivate = false
-    }
-    
     private static var subsystem = Bundle.main.bundleIdentifier ?? "Logger"
     private let logger: Logger
     
     
-    required init(category: LogCategory = Defaults.category) {
+    required init(category: LogCategory) {
         self.logger = Logger(subsystem: Self.subsystem, category: category.rawValue)
     }
     
-    func logDebug(event: String, isPrivate: Bool = Defaults.isPrivate) {
+    func logDebug(event: String, isPrivate: Bool) {
         if isPrivate {
             self.logger.debug("\(event, privacy: .private)")
         } else {
@@ -31,7 +26,7 @@ class OSLogger:LoggerProtocol {
         }
     }
     
-    func logError(event: String, isPrivate: Bool = Defaults.isPrivate) {
+    func logError(event: String, isPrivate: Bool) {
         if isPrivate {
             self.logger.error("\(event, privacy: .private)")
         } else {
@@ -39,7 +34,7 @@ class OSLogger:LoggerProtocol {
         }
     }
     
-    func logInfo(event: String, isPrivate: Bool = Defaults.isPrivate) {
+    func logInfo(event: String, isPrivate: Bool) {
         if isPrivate {
             self.logger.info("\(event, privacy: .private)")
         } else {
