@@ -34,8 +34,12 @@ class PersistentStorageManager : PersistentStorageManagerProtocol {
     }
     
     func saveRepository(repository:DatabaseRepository) {
-        try? database.write {
-            database.add(repository)
+        do {
+            try database.write {
+                database.add(repository)
+            }
+        } catch {
+            self.logger.logError(event: "Error trying to save repository: " + repository.description, isPrivate: true)
         }
     }
     
