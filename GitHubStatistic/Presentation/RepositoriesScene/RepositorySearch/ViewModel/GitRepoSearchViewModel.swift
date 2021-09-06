@@ -84,13 +84,11 @@ class GitRepoSearchViewModel: GitRepoSearchViewModelProtocol {
                 searchRepositoriesUseCase.execute(nameToSearch: searchText, typeOfSearch: isSearchByName ? .byRepositoryName : .byOwner)
             }.share()
         
-        self.newSearchResultModels = searchResults.delay(.milliseconds(500), scheduler: MainScheduler.instance)
-            .filter{$0.isSuccess()}
+        self.newSearchResultModels = searchResults.filter{$0.isSuccess()}
             .map{try! $0.getSuccessList()}
             .asDriver(onErrorJustReturn: [GitRepository]())
         
-        self.searchResultError = searchResults.delay(.milliseconds(500), scheduler: MainScheduler.instance)
-            .filter{!$0.isSuccess()}
+        self.searchResultError = searchResults.filter{!$0.isSuccess()}
             .map{
                 let errorMessage = try! $0.getErrorMessage()
                 return NSLocalizedString("default_server_list_error", comment: "") + " " + NSLocalizedString("server_message", comment: "") + " " + errorMessage

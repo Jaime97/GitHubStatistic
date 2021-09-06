@@ -113,11 +113,12 @@ class GitRepoSearchViewController: BaseViewController {
         self.searchResultTableView.delegate = nil
         self.searchResultTableView.dataSource = nil
 
-        self.viewModel.newSearchResultModels.drive(self.searchResultTableView.rx.items(cellIdentifier: "NewGitRepoSearchTableViewCell", cellType: NewGitRepoSearchTableViewCell.self)) { i, cellModel, cell in
+        self.viewModel.newSearchResultModels.delay(.milliseconds(500)).drive(self.searchResultTableView.rx.items(cellIdentifier: "NewGitRepoSearchTableViewCell", cellType: NewGitRepoSearchTableViewCell.self)) { i, cellModel, cell in
             cell.populateCellWithInfo(cellModel: cellModel)
         }.disposed(by: self.disposeBag)
         
         self.viewModel.searchResultError
+            .delay(.milliseconds(500))
             .drive{self.showSimpleErrorAlert(message: $0)}
             .disposed(by: self.disposeBag)
         

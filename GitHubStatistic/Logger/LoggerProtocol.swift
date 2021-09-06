@@ -19,4 +19,5 @@ enum LogCategory: String, CaseIterable {
     case data
     case presentation
     case domain
+    case testing
 }

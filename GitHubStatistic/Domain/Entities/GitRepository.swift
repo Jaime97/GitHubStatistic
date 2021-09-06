@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GitRepository {
+struct GitRepository: Equatable {
     public var image : String?
     public var url : String?
     public var name : String?
