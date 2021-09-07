@@ -24,4 +24,8 @@ class DatabaseRepository : Object {
         self.language = language
     }
     
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
 }
