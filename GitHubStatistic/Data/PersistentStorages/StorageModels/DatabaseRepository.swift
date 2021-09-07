@@ -14,6 +14,7 @@ class DatabaseRepository : Object {
     @objc dynamic var name : String?
     @objc dynamic var owner : String?
     @objc dynamic var language : String?
+    @objc dynamic var compoundKey : String?
     
     required convenience init(image:String?, url:String?, name:String?, owner:String?, language:String?) {
         self.init()
@@ -22,10 +23,11 @@ class DatabaseRepository : Object {
         self.name = name
         self.owner = owner
         self.language = language
+        self.compoundKey = (self.owner ?? "") + "-" + (self.name ?? "")
     }
     
     override static func primaryKey() -> String? {
-        return "id"
+        return "compoundKey"
     }
     
 }
