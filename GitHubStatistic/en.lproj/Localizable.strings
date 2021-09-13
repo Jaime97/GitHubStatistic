@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  GitHubStatistic
+
+  Created by Jaime Alcántara on 07/05/2021.
+  
+*/
+
+"search_repo_here" = "Search your repository here";
+"repository" = "Repository";
+"owner" = "Owner";
+"ok" = "Ok";
+"error" = "Error";
+"default_server_list_error" = "There was an error getting the repository list. Please, try again later.";
+"server_message" = "Server message: ";

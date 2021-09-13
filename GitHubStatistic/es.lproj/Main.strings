@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "There are no previous searches"; ObjectID = "6c2-Cv-FEk"; */
+"6c2-Cv-FEk.text" = "No hay búsquedas previas";
+
+/* Class = "UILabel"; text = "commits"; ObjectID = "C4a-QS-9OZ"; */
+"C4a-QS-9OZ.text" = "commits";
+
+/* Class = "UILabel"; text = "Search by: "; ObjectID = "fJq-Of-neM"; */
+"fJq-Of-neM.text" = "Buscar por: ";
+
+/* Class = "UILabel"; text = "Recent repositories"; ObjectID = "k9Q-8j-XGh"; */
+"k9Q-8j-XGh.text" = "Repositorios recientes";
+
+/* Class = "UILabel"; text = "Results"; ObjectID = "r02-K6-yeS"; */
+"r02-K6-yeS.text" = "Resultados";
+
+/* Class = "UILabel"; text = "Find your repository"; ObjectID = "uUz-zU-nVx"; */
+"uUz-zU-nVx.text" = "Encuentra tu repositorio";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wo0-vR-1Q1"; */
+"wo0-vR-1Q1.text" = "Label";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "xPH-cN-5v3"; */
+"xPH-cN-5v3.text" = "0";

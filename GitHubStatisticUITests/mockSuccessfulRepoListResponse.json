@@ -1,0 +1,31 @@
+{
+    "total_count": 623919,
+    "incomplete_results": false,
+    "items": [{
+            "id": 22327691,
+            "node_id": "MDEwOlJlcG9zaXRvcnkyMjMyNzY5MQ==",
+            "name": "example",
+            "full_name": "golang/example",
+            "private": false,
+            "owner": {
+                "login": "golang",
+                "id": 4314092,
+                "node_id": "MDEyOk9yZ2FuaXphdGlvbjQzMTQwOTI=",
+                "avatar_url": "https://avatars.githubusercontent.com/u/4314092?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/golang",
+                "html_url": "https://github.com/golang",
+                "followers_url": "https://api.github.com/users/golang/followers",
+                "following_url": "https://api.github.com/users/golang/following{/other_user}",
+                "gists_url": "https://api.github.com/users/golang/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/golang/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/golang/subscriptions",
+                "organizations_url": "https://api.github.com/users/golang/orgs",
+                "repos_url": "https://api.github.com/users/golang/repos",
+                "events_url": "https://api.github.com/users/golang/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/golang/received_events",
+                "type": "Organization",
+                "site_admin": false
+            }
+    ]
+}
